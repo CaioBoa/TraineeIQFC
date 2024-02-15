@@ -15,7 +15,7 @@ Curso de Iniciação IQFC
 
 |-------------------------|-----------------------------------------------|
 | Tratamento de Dados     |    <a href="/site/dados.html">Aula</a>        |
-| Entendendo aplicação em código |    <a href="/site/codigo.html">Aula</a>|
+| Entendendo aplicação em código |  <a href="/site/codigo.html">Aula</a>  |
 | Fatores : Momentum      |    <a href="/site/momentum.html">Aula</a>     |
 | Fatores : Size          |    <a href="/site/size.html">Aula</a>         |
 | Fatores : Low-Vol       |    <a href="/site/lowvol.html">Aula</a>       |
@@ -29,7 +29,3 @@ Curso de Iniciação IQFC
 |-------------------------|-----------------------------------------------|
 | Papers de Referência    |    <a href="/site/papers.html">Aula</a>       |
 ;;;
-
-<div style="margin:8%"></div>
-
-![](iqfc2.png)

@@ -1,81 +1,42 @@
 <a href="/site/home">⇦ Home</a>
 
-Momentum
+Economatica
 ======
 
-Explicação do Fator
----------
+**Economatica** é a ferramenta que será utilizada para o download das bases de dados que utilizaremos em nossas estratégias.
 
-O fator momentum tem como tese a expectativa de crescimento de um ativo em função de seu crescimento passado, como se dísessemos que um ativo que está em alta tende a continuar em alta, e um ativo que está em baixa tende a continuar em baixa.
+Para utlização da mesma é necessário que se possua licença ativa, porém essa licença já foi adquirida pelo Insper para nosso uso e pode ser acessada quando logado na rede do Insper ou através de VPN, como será demonstrado ao final do tutorial.
 
-Para evidenciar tal fator, vamos analisar o gráfico do último ano do ativo **PETR4**.
+Acesso e Login
+------
 
-![PETR4](petr4.png)
+1. Acesse o site do [Economatica](https://www.economatica.com/).
 
-A ideia que circunda o fator é de aproveitar os momentos de alta da ação, identificando seus momentos de crescimento e confiando na tese de que seguirão crescendo, de modo que se possa surfar nas ondas de crescimento do ativo, tal qual evidenciado na imagem a seguir.
+!!!
+Lembre-se de estar logado na rede do Insper
+!!!
 
-![PETR4](petr4_riscado.png)
+2. Clique em *Login* no canto superior direito da tela.
 
-Implementação em Python
----------
+3. Seleciona a opção *Plataforma Economatica*.
 
-A implementação em Python do fator requer apenas a base de dados de fechamento, uma vez que se baseia apenas nos valores anteriores para filtragem dos ativos.
+![](economatica1.png)
 
-Primeiramente realize a importação das bibliotecas necessárias.
-```python
-import pandas as pd
-import numpy as np
-import datetime as dt
-```
+4. Insira seu email do Insper e clique em Login.
 
-Em sequência realize o tratamento da base de dados de fechamento. No caso a seguir observamos o tratamento da base de dados de fechamento baixada através do site Economatica.
-```python
-fechamento = pd.read_csv("fechamento.csv", delimiter=";")
-fechamento.columns = fechamento.columns.str.replace("Fechamento\najust p/ prov\nEm moeda orig\n", "", regex = False)
-fechamento["Data"] = pd.to_datetime(fechamento["Data"], format="%d/%m/%Y")
-fechamento = fechamento.melt(id_vars =  "Data")
-fechamento.value = fechamento.value.replace("-", np.nan)
-fechamento.value = fechamento.value.str.replace(".", "")
-fechamento.value = fechamento.value.str.replace(",", ".")
-fechamento.value = pd.to_numeric(fechamento.value)
-fechamento = pd.pivot_table(fechamento, values = "value", index = "Data", columns = "variable")
-fechamento = fechamento.reset_index()
-```
+5. Aguarde a tela de carregamento. (Pode demorar um pouco)
 
-Em seguida, defina seus valores de lookback e data de início. A definição de tais valores depende exclusivamente da estratégia utilizada.
-```python
-lookback = 3
-dataInicio = pd.Timestamp(dt.date(2010, 1, 1))
-dataAnalise = dataInicio - pd.DateOffset(months = lookback)
-```
+Baixando um Banco de Dados
+------
 
-Por fim, realize o cálculo do fator momentum. No caso a seguir, o cálculo é realizado através da variação percentual acumulada dos últimos 3 meses.
-```python
-# Filtragem da base de dados para o momento de análise
-momentum = fechamento[(fechamento["Data"] < dataInicio) & (fechamento["Data"] > dataAnalise)]
-# Definindo index como Data para realização dos passos seguintes
-momentum = momentum.set_index('Data')
-# Cálculo da variação percentual acumulada dentro do período de análise
-momentum = momentum.pct_change(fill_method=None).add(1).cumprod().add(-1)
-# Selecionando apenas o último dia do período de análise, no qual haverá a variação percentual total do período
-momentum = momentum.iloc[-1]
-# Ordenando os valores de forma decrescente, de modo a selecionar os ativos com maior variação percentual no topo
-momentum = momentum.sort_values(ascending = False)
-# Selecionando os 10 ativos com maior variação percentual
-momentum = momentum.iloc[:10]
-```
+A título de exemplo iremos realizar o download de uma base de dados de ROE (Retorno sobre o Patrimônio Líquido) de empresas listadas na B3.
 
-A seguinte linha é a base para o cálculo do fator momentum, portanto, analisaremos ela mais a fundo:
+1. Caso não esteja com a seguinte janela aberta, clique em abrir nova janela no canto superior esquerdo.
 
-```python
-momentum = momentum.pct_change(fill_method=None).add(1).cumprod().add(-1)
-```
+![](economatica0.png)
 
-- pct_change altera o database para que cada valor seja a variação percentual em relação ao valor anterior
-- add(1) é necessário para que a variação percentual seja dada na ordem de grandeza correta para uso da função cumprod, exemplo:
-    - Se a variação percentual for de 10%, o valor final será 1,1, sendo que pct_change retornaria 0,1
-    - Se a variação percentual for de -10%, o valor final será 0,9, sendo que pct_change retornaria -0,1
-- cumprod realiza o cálculo da variação percentual acumulada, acumulando o valor total no último dia do período
-- add(-1) é necessário para que o valor final seja a variação percentual acumulada, e não o valor acumulado, exemplo:
-    - Se a variação percentual for de 180%, o valor final será 1,8, sendo que cumprod retornaria 2,8
-    - Se a variação percentual for de -180%, o valor final será -1,8, sendo que cumprod retornaria -0,8
+2. Primeiramente é necessário selecionar os dados requisitados e para tal, clique em *Screening* na ala de *Ferramentas Básicas*.
+
+3. Em tal janela escolheremos o tipo de ativo que desejamos analisar, no nosso caso iremos em *Ações* e em seguida abriremos os dados da ala *Básico* para selecionarmos apenas as ações do BOVESPA.
+
+4. Após selecionada
