@@ -1,4 +1,4 @@
-<a href="/site/home.html">Trainee IQFC</a>
+<a href="/site/home.html">Curso de Iniciação IQFC</a>
 
 O que é Factor Investing?
 ======
