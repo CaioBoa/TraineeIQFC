@@ -4,7 +4,7 @@ Interface de Desenvolvimento
 ======
 
 !!!
-Esse tutorial foi pensado, principalmente, nos alunos de Administração e Economia do Insper, que, provavelmente, não tiveram contato prévio com o Visual Studio Code e algum contato raso com o Python. Por isso, o tutorial é bem detalhado e explicativo.
+Esse tutorial foi pensado, principalmente, nos alunos de Administração e Economia do Insper, que, provavelmente, não tiveram contato prévio com o Visual Studio Code e um contato muito raso com o Python.
 !!!
 
 Neste tutorial, vamos aprender a instalar o Visual Studio Code e o Python, a configurar o ambiente de desenvolvimento para começar a programar em Python e a instalar os frameworks, bibliotecas e extensões necessárias para o andamento das aulas.
