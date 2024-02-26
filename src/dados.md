@@ -1,4 +1,4 @@
-<a href="/site/home">⇦ Home</a>
+<a href="/site/home.html">Trainee IQFC</a>
 
 Momentum
 ======
