@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <title>COMING SOON</title>
+        <title>Tratamento de Dados</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans+Condensed:ital,wght@0,300;1,300&family=Open+Sans:ital,wght@0,300;0,400;0,700;0,800;1,300;1,400;1,700;1,800&family=Oxygen+Mono&family=Josefin+Sans:ital,wght@0,200;0,600;1,200;1,600&display=swap">
@@ -24,7 +24,30 @@
             <main>
 
 <p><a href="/TraineeIQFC/site/home.html">Curso de Iniciação IQFC</a></p>
-<h1>COMING SOON</h1>
+<h1>Tratamento de Dados</h1>
+<p>Após realizar o download dos dados o primeiro passo para poder efetivamente utiliza-los em uma estratégia quantitativa é trata-los para tornar possível e mais simples a manipulação do dataset.</p>
+<p>Esse é um processo extremamente repetitivo que envolve a limpeza, transformação e manipulação dos dados. Portanto, algo que futuramente poderá ser exportado para outros códigos e reutilizado.</p>
+<blockquote class="warning">
+<p>Aviso</p>
+<p>Embora você possívelmente irá apenas copiar e colar o mesmo padrão de tratamento de dados em seus futuros projetos, é importante enteder o que está acontecendo em cada etapa do processo, para que você possa trabalhar futuramente com dados de outras fontes fora o economatica e resolver possíveis bugs que possam surgir.</p>
+</blockquote>
+<h2>Aplicação em Python</h2>
+<p>Segue abaixo uma possível aplicação de tratamento de dados em Python para a base de dados de fechamento baixada através do site Economatica.</p>
+<pre><code class="language-python">fechamento = pd.read_csv("fechamento.csv", delimiter=";")
+fechamento.columns = fechamento.columns.str.replace("Fechamento\najust p/ prov\nEm moeda orig\n", "", regex = False)
+fechamento["Data"] = pd.to_datetime(fechamento["Data"], format="%d/%m/%Y")
+fechamento = fechamento.melt(id_vars =  "Data")
+fechamento.value = fechamento.value.replace("-", np.nan)
+fechamento.value = fechamento.value.str.replace(".", "")
+fechamento.value = fechamento.value.str.replace(",", ".")
+fechamento.value = pd.to_numeric(fechamento.value)
+fechamento = pd.pivot_table(fechamento, values = "value", index = "Data", columns = "variable")
+fechamento = fechamento.reset_index()
+</code></pre>
+<p>Pode parecer confuso a primeira vista, mas vamos analisar o código linha a linha para facilitar a compreensão.</p>
+<pre><code class="language-python">fechamento = pd.read_csv("fechamento.csv", delimiter=";")
+</code></pre>
+<p>Em tal linha o banco de dados <em>fechamento.csv</em> é lido e armazenado na varíavel <em>fechamento</em>, utilizando da string “;” como delimitador dos dados, pois é o padrão do arquivo baixado do site Economatica.</p>
 
 
             </main>
