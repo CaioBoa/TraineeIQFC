@@ -1,4 +1,4 @@
-<a href="/site/home.html">Curso de Iniciação IQFC</a>
+<a href="home.html">Curso de Iniciação IQFC</a>
 
 Interface de Desenvolvimento
 ======
