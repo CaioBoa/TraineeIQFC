@@ -3,8 +3,8 @@ Curso de Iniciação IQFC
 
 ;;;Tutoriais
 |-------------------------------|-----------------------------------------------|
-| O que é Factor Investing      |    <a href="TraineeIQFC/site/factor.html">Aula</a>       |
-| Economatica                   |    <a href="TraineeIQFC/site/src/economatica.html">Aula</a>  |
+| O que é Factor Investing      |    <a href="factor.html">Aula</a>       |
+| Economatica                   |    <a href="economatica.html">Aula</a>  |
 | Interface de Desenvolvimento  |    <a href="TraineeIQFC/site/src/interface.html">Aula</a>    |
 | Python                        |    <a href="TraineeIQFC/site/src/python.html">Aula</a>       |
 | Pandas                        |    <a href="TraineeIQFC/site/src/pandas.html">Aula</a>       |
