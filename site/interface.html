@@ -23,21 +23,18 @@
             </header>
             <main>
 
+<p><a href="/TraineeIQFC/site/home.html">Curso de Iniciação IQFC</a></p>
 <h1>Interface de Desenvolvimento</h1>
-<blockquote class="warning">
-<p>Aviso</p>
-<p>Esse tutorial foi pensado, principalmente, nos alunos de Administração e Economia do Insper, que, provavelmente, não tiveram contato prévio com o Visual Studio Code e algum contato raso com o Python. Por isso, o tutorial é bem detalhado e explicativo.</p>
-</blockquote>
-<p>Neste tutorial, vamos aprender a instalar o Visual Studio Code e o Python, e a configurar o ambiente de desenvolvimento para começar a programar em Python. Além disso, vamos aprender a utilizar o terminal integrado do Visual Studio Code para executar comandos e scripts Python.</p>
-<div align="center">
-    <img src="img/vscode.webp" alt="VScode icon" width="200">
-</div>
+<p>Neste tutorial, vamos aprender a instalar o Visual Studio Code e o Python, a configurar o ambiente de desenvolvimento para começar a programar em Python e a instalar os frameworks, bibliotecas e extensões necessárias para o andamento das aulas.</p>
 <h2>Instalação do Visual Studio Code</h2>
 <blockquote class="warning">
 <p>Aviso</p>
 <p>Se você já tem o Visual Studio Code instalado, você pode pular para a próxima seção.</p>
 </blockquote>
 <p>O Visual Studio Code é um editor de código-fonte desenvolvido pela Microsoft, que pode ser utilizado para desenvolvimento de software em diversas linguagens, incluindo Python. O editor é gratuito e de código aberto, e possui diversas funcionalidades que facilitam o desenvolvimento de código, como realce de sintaxe, finalização de código, depuração, controle de versão, entre outros.</p>
+<div align="center">
+    <img src="img/vscode.webp" alt="VScode icon" width="200">
+</div>
 <p>Para instalar o Visual Studio Code, acesse o <a href="https://code.visualstudio.com/" target="_blank">site oficial</a> e clique no botão de download. O site irá identificar automaticamente o sistema operacional que você está utilizando e oferecer o download da versão correta. Após o download, execute o instalador e siga as instruções para instalar o Visual Studio Code.</p>
 <h2>Instalação do Python</h2>
 <blockquote class="warning">
@@ -45,6 +42,9 @@
 <p>Se você já tem o Python instalado, você pode pular para a próxima seção.</p>
 </blockquote>
 <p>O Python é uma linguagem de programação de alto nível, interpretada, de script, imperativa, orientada a objetos, funcional, de tipagem dinâmica e forte. É uma das linguagens mais populares para desenvolvimento de software, e é amplamente utilizada em diversas áreas, aqui, usaremos para análise de dados financeiros.</p>
+<div align="center">
+    <img src="img/python.png" alt="Python icon" width="200">
+</div>
 <p>Para instalar o Python, acesse o <a href="https://www.python.org/" target="_blank">site oficial</a> e clique no botão de download. O site te oferecerá a versão mais recente do Python, e te dará diferentes opções de sistemas operacionais. Escolha a opção que corresponde ao seu sistema operacional e clique no link para baixar o instalador.</p>
 <blockquote class="question">
 <p>Exemplo</p>
@@ -56,6 +56,34 @@
     <img src="img/vscode_welcome.png" alt="VScode welcome" width="600">
 </div>
 <p>Clique em <em><strong>“Open Folder…”</strong></em> ou <em><strong>“Abrir Pasta…”</strong></em> e selecione a pasta onde você deseja criar o seu projeto. Se você ainda não tem uma pasta para o seu projeto, crie uma nova pasta em um local de sua preferência e selecione essa pasta.</p>
+<h2>Instalação de frameworks, bibliotecas e extensões</h2>
+<p>Para o andamento das aulas, utilizaremos alguns frameworks e bibliotecas que precisam ser instalados. Para isso, abra o terminal integrado do Visual Studio Code. Para abrir o terminal, clique em <em><strong>“Terminal”</strong></em> na barra de menu superior e depois em <em><strong>“New Terminal”</strong></em>. O terminal será aberto na parte inferior do editor.</p>
+<blockquote class="warning">
+<p>Aviso</p>
+<p>Se na barra de menu superior não aparecer a opção <em><strong>“Terminal”</strong></em>, clique em <em><strong>“View”</strong></em> e depois em <em><strong>“Terminal”</strong></em> e siga os passos anteriores.</p>
+</blockquote>
+<figure class="img"><img src="img/vs_terminal.png" alt="alt text"></figure>
+<p>Dessa formma, conseguiremos instalar as bibliotecas necessárias para o andamento das aulas. No entanto, é possível que nem todos vocês estejam no mesmo sistema operacional, e, por isso, a instalação das bibliotecas pode variar. Antes precisamos checar se o Python foi instalado corretamente. Para isso, digite o seguinte comando no terminal e pressione <em><strong>Enter</strong></em>:</p>
+<pre><code class="language-python">python --version
+</code></pre>
+<p>Se o Python foi instalado corretamente, o terminal irá exibir a versão do Python que foi instalada.</p>
+<blockquote class="question">
+<p>Exemplo</p>
+<p>Se o Python foi instalado corretamente, o terminal irá exibir algo semelhante a:</p>
+<pre><code class="language-python">Python 3.9.5
+</code></pre>
+<p>Se o Python não foi instalado corretamente, o terminal irá exibir uma mensagem de erro.</p>
+</blockquote>
+<p>Agora, vamos o instalar o gerenciador de pacotes do Python, o <em><strong>pip</strong></em>. O <em><strong>pip</strong></em> é um sistema de gerenciamento de pacotes utilizado para instalar e gerenciar pacotes de software escritos em Python. Para instalar o <em><strong>pip</strong></em>, digite o seguinte comando no terminal e pressione <em><strong>Enter</strong></em>:</p>
+<pre><code class="language-python">python -m ensurepip --default-pip
+</code></pre>
+<p>Após a instalação do <em><strong>pip</strong></em>, vamos instalar as bibliotecas necessárias para o andamento das aulas. Para isso, digite o seguinte comando no terminal e pressione <em><strong>Enter</strong></em>:</p>
+<pre><code class="language-python">pip install pandas numpy matplotlib quantstats datetime notebook
+</code></pre>
+<p>Após a instalação das bibliotecas, vamos instalar as extensões necessárias para o andamento das aulas. Para isso, clique no ícone de extensões na barra lateral esquerda do editor (o ícone de extensões é representado por quatro quadrados sobrepostos) ou pressione <em><strong>Ctrl+Shift+X</strong></em>. Na barra de pesquisa que aparecer, digite <em><strong>Python</strong></em> e pressione <em><strong>Enter</strong></em>. A extensão <em><strong>Python</strong></em>, desenvolvida pela Microsoft, deve aparecer como a primeira opção. Clique no botão <em><strong>“Install”</strong></em> para instalar a extensão.</p>
+<p>Feito isso, faça o mesmo procedimento para instalar a extensão <em><strong>Jupyter</strong></em>. Na barra de pesquisa, digite <em><strong>Jupyter</strong></em> e pressione <em><strong>Enter</strong></em>. A extensão <em><strong>Jupyter</strong></em>, desenvolvida pela Microsoft, deve aparecer como a primeira opção. Clique no botão <em><strong>“Install”</strong></em> para instalar a extensão.</p>
+<p>Com isso, o ambiente de desenvolvimento está configurado e pronto para ser utilizado. Agora, você já pode começar a programar em Python e acompanhar as aulas do curso.</p>
+<figure class="img"><img src="img/gatin_dboa.png" alt="gatin dboa"></figure>
 
 
             </main>
