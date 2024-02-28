@@ -1,79 +1,97 @@
-Momentum
+<a href="/site/home.html">Curso de Iniciação IQFC</a>
+
+Interface de Desenvolvimento
 ======
 
-Explicação do Fator
----------
+!!!
+Esse tutorial foi pensado, principalmente, nos alunos de Administração e Economia do Insper, que, provavelmente, não tiveram contato prévio com o Visual Studio Code e um contato muito raso com o Python.
+!!!
 
-O fator momentum tem como tese a expectativa de crescimento de um ativo em função de seu crescimento passado, como se dísessemos que um ativo que está em alta tende a continuar em alta, e um ativo que está em baixa tende a continuar em baixa.
+Neste tutorial, vamos aprender a instalar o Visual Studio Code e o Python, a configurar o ambiente de desenvolvimento para começar a programar em Python e a instalar os frameworks, bibliotecas e extensões necessárias para o andamento das aulas.
 
-Para evidenciar tal fator, vamos analisar o gráfico do último ano do ativo **PETR4**.
+## Instalação do Visual Studio Code
 
-![PETR4](petr4.png)
+!!! 
+Se você já tem o Visual Studio Code instalado, você pode pular para a próxima seção.
+!!!
 
-A ideia que circunda o fator é de aproveitar os momentos de alta da ação, identificando seus momentos de crescimento e confiando na tese de que seguirão crescendo, de modo que se possa surfar nas ondas de crescimento do ativo, tal qual evidenciado na imagem a seguir.
+O Visual Studio Code é um editor de código-fonte desenvolvido pela Microsoft, que pode ser utilizado para desenvolvimento de software em diversas linguagens, incluindo Python. O editor é gratuito e de código aberto, e possui diversas funcionalidades que facilitam o desenvolvimento de código, como realce de sintaxe, finalização de código, depuração, controle de versão, entre outros.
 
-![PETR4](petr4_riscado.png)
+<div align="center">
+    <img src="vscode.webp" alt="VScode icon" width="200"/>
+</div>
 
-Implementação em Python
----------
+Para instalar o Visual Studio Code, acesse o [site oficial](https://code.visualstudio.com/) e clique no botão de download. O site irá identificar automaticamente o sistema operacional que você está utilizando e oferecer o download da versão correta. Após o download, execute o instalador e siga as instruções para instalar o Visual Studio Code.
 
-A implementação em Python do fator requer apenas a base de dados de fechamento, uma vez que se baseia apenas nos valores anteriores para filtragem dos ativos.
+## Instalação do Python
 
-Primeiramente realize a importação das bibliotecas necessárias.
-```python
-import pandas as pd
-import numpy as np
-import datetime as dt
-```
+!!! 
+Se você já tem o Python instalado, você pode pular para a próxima seção.
+!!!
 
-Em sequência realize o tratamento da base de dados de fechamento. No caso a seguir observamos o tratamento da base de dados de fechamento baixada através do site Economatica.
-```python
-fechamento = pd.read_csv("fechamento.csv", delimiter=";")
-fechamento.columns = fechamento.columns.str.replace("Fechamento\najust p/ prov\nEm moeda orig\n", "", regex = False)
-fechamento["Data"] = pd.to_datetime(fechamento["Data"], format="%d/%m/%Y")
-fechamento = fechamento.melt(id_vars =  "Data")
-fechamento.value = fechamento.value.replace("-", np.nan)
-fechamento.value = fechamento.value.str.replace(".", "")
-fechamento.value = fechamento.value.str.replace(",", ".")
-fechamento.value = pd.to_numeric(fechamento.value)
-fechamento = pd.pivot_table(fechamento, values = "value", index = "Data", columns = "variable")
-fechamento = fechamento.reset_index()
-```
+O Python é uma linguagem de programação de alto nível, interpretada, de script, imperativa, orientada a objetos, funcional, de tipagem dinâmica e forte. É uma das linguagens mais populares para desenvolvimento de software, e é amplamente utilizada em diversas áreas, aqui, usaremos para análise de dados financeiros.
 
-Em seguida, defina seus valores de lookback e data de início. A definição de tais valores depende exclusivamente da estratégia utilizada.
-```python
-lookback = 3
-dataInicio = pd.Timestamp(dt.date(2010, 1, 1))
-dataAnalise = dataInicio - pd.DateOffset(months = lookback)
-```
+<div align="center">
+    <img src="python.png" alt="Python icon" width="200"/>
+</div>
 
-Por fim, realize o cálculo do fator momentum. No caso a seguir, o cálculo é realizado através da variação percentual acumulada dos últimos 3 meses.
-```python
-# Filtragem da base de dados para o momento de análise
-momentum = fechamento[(fechamento["Data"] < dataInicio) & (fechamento["Data"] > dataAnalise)]
-# Definindo index como Data para realização dos passos seguintes
-momentum = momentum.set_index('Data')
-# Cálculo da variação percentual acumulada dentro do período de análise
-momentum = momentum.pct_change(fill_method=None).add(1).cumprod().add(-1)
-# Selecionando apenas o último dia do período de análise, no qual haverá a variação percentual total do período
-momentum = momentum.iloc[-1]
-# Ordenando os valores de forma decrescente, de modo a selecionar os ativos com maior variação percentual no topo
-momentum = momentum.sort_values(ascending = False)
-# Selecionando os 10 ativos com maior variação percentual
-momentum = momentum.iloc[:10]
-```
+Para instalar o Python, acesse o [site oficial](https://www.python.org/) e clique no botão de download. O site te oferecerá a versão mais recente do Python, e te dará diferentes opções de sistemas operacionais. Escolha a opção que corresponde ao seu sistema operacional e clique no link para baixar o instalador.
 
-A seguinte linha é a base para o cálculo do fator momentum, portanto, analisaremos ela mais a fundo:
+??? Exemplo
+    Se você estiver utilizando Windows de 64 bits, você deve baixar a versão de 64 bits do Python. Você clicará no link ***Windows embeddable package (64-bit)*** e o download começará automaticamente.
+
+## Configuração do ambiente de desenvolvimento
+
+Após as instalações, abra o Visual Studio Code. A primeira vez que você abrir o editor, ele irá exibir uma tela de boas-vindas com algumas opções. Algo muito semelhante à tela seguir:
+
+<div align="center">
+    <img src="vscode_welcome.png" alt="VScode welcome" width="600"/>
+</div>
+
+Clique em ***"Open Folder..."*** ou ***"Abrir Pasta..."*** e selecione a pasta onde você deseja criar o seu projeto. Se você ainda não tem uma pasta para o seu projeto, crie uma nova pasta em um local de sua preferência e selecione essa pasta.
+
+## Instalação de frameworks, bibliotecas e extensões
+
+Para o andamento das aulas, utilizaremos alguns frameworks e bibliotecas que precisam ser instalados. Para isso, abra o terminal integrado do Visual Studio Code. Para abrir o terminal, clique em ***"Terminal"*** na barra de menu superior e depois em ***"New Terminal"***. O terminal será aberto na parte inferior do editor.
+
+!!!
+Se na barra de menu superior não aparecer a opção ***"Terminal"***, clique em ***"View"*** e depois em ***"Terminal"*** e siga os passos anteriores.
+!!!
+
+Sua tela deve estar parecida com a imagem a seguir:
+![alt text](vs_terminal.png)
+
+Dessa formma, conseguiremos instalar as bibliotecas necessárias para o andamento das aulas. No entanto, é possível que nem todos vocês estejam no mesmo sistema operacional, e, por isso, a instalação das bibliotecas pode variar. Antes precisamos checar se o Python foi instalado corretamente. Para isso, digite o seguinte comando no terminal e pressione ***Enter***:
 
 ```python
-momentum = momentum.pct_change(fill_method=None).add(1).cumprod().add(-1)
+python --version
 ```
 
-- pct_change altera o database para que cada valor seja a variação percentual em relação ao valor anterior
-- add(1) é necessário para que a variação percentual seja dada na ordem de grandeza correta para uso da função cumprod, exemplo:
-    - Se a variação percentual for de 10%, o valor final será 1,1, sendo que pct_change retornaria 0,1
-    - Se a variação percentual for de -10%, o valor final será 0,9, sendo que pct_change retornaria -0,1
-- cumprod realiza o cálculo da variação percentual acumulada, acumulando o valor total no último dia do período
-- add(-1) é necessário para que o valor final seja a variação percentual acumulada, e não o valor acumulado, exemplo:
-    - Se a variação percentual for de 180%, o valor final será 1,8, sendo que cumprod retornaria 2,8
-    - Se a variação percentual for de -180%, o valor final será -1,8, sendo que cumprod retornaria -0,8
+Se o Python foi instalado corretamente, o terminal irá exibir a versão do Python que foi instalada. 
+
+??? Exemplo
+    Se o Python foi instalado corretamente, o terminal irá exibir algo semelhante a:
+    ```python
+    Python 3.9.5
+    ```
+    Se o Python não foi instalado corretamente, o terminal irá exibir uma mensagem de erro.
+
+Agora, vamos o instalar o gerenciador de pacotes do Python, o ***pip***. O ***pip*** é um sistema de gerenciamento de pacotes utilizado para instalar e gerenciar pacotes de software escritos em Python. Para instalar o ***pip***, digite o seguinte comando no terminal e pressione ***Enter***:
+
+```python
+python -m ensurepip --default-pip
+```
+
+Após a instalação do ***pip***, vamos instalar as bibliotecas necessárias para o andamento das aulas. Para isso, digite o seguinte comando no terminal e pressione ***Enter***:
+
+```python
+pip install pandas numpy matplotlib quantstats datetime notebook
+```
+
+Após a instalação das bibliotecas, vamos instalar as extensões necessárias para o andamento das aulas. Para isso, clique no ícone de extensões na barra lateral esquerda do editor (o ícone de extensões é representado por quatro quadrados sobrepostos) ou pressione ***Ctrl+Shift+X***. Na barra de pesquisa que aparecer, digite ***Python*** e pressione ***Enter***. A extensão ***Python***, desenvolvida pela Microsoft, deve aparecer como a primeira opção. Clique no botão ***"Install"*** para instalar a extensão.
+
+Feito isso, faça o mesmo procedimento para instalar a extensão ***Jupyter***. Na barra de pesquisa, digite ***Jupyter*** e pressione ***Enter***. A extensão ***Jupyter***, desenvolvida pela Microsoft, deve aparecer como a primeira opção. Clique no botão ***"Install"*** para instalar a extensão.
+
+Com isso, o ambiente de desenvolvimento está configurado e pronto para ser utilizado. Agora, você já pode começar a programar em Python e acompanhar as aulas do curso.
+
+![gatin dboa](gatin_dboa.png)
