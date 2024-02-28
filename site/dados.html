@@ -48,6 +48,38 @@ fechamento = fechamento.reset_index()
 <pre><code class="language-python">fechamento = pd.read_csv("fechamento.csv", delimiter=";")
 </code></pre>
 <p>Em tal linha o banco de dados <em>fechamento.csv</em> é lido e armazenado na varíavel <em>fechamento</em>, utilizando da string “;” como delimitador dos dados, pois é o padrão do arquivo baixado do site Economatica.</p>
+<pre><code class="language-python">fechamento.columns = fechamento.columns.str.replace("Fechamento\najust p/ prov\nEm moeda orig\n", "", regex = False)
+</code></pre>
+<p>Aqui é feita a substituição do nome das colunas, que por padrão vem com um texto desnecessário, por um nome mais limpo e fácil de trabalhar.</p>
+<p>Essa substituição é feita utilizando a função <em>str.replace</em> do pandas, que substitui a string <em>“Fechamento\najust p/ prov\nEm moeda orig\n”</em> por um espaço em branco, e o parâmetro <em>regex = False</em> que indica que a string a ser substituída não é uma expressão regular, mas uma string literal.</p>
+<pre><code class="language-python">fechamento["Data"] = pd.to_datetime(fechamento["Data"], format="%d/%m/%Y")
+</code></pre>
+<p>Aqui é feita a conversão da coluna <em>Data</em> para o formato de data, utilizando a função <em>pd.to_datetime</em> do pandas, que recebe como parâmetro a coluna a ser convertida e o formato da data, no caso aplicando dia/mês/ano.</p>
+<pre><code class="language-python">fechamento = fechamento.melt(id_vars =  "Data")
+</code></pre>
+<p>Aqui é feita a transformação do banco de dados de formato <em>wide</em> para <em>long</em>, utilizando a função <em>melt</em> do pandas, que recebe como parâmetro a coluna que será mantida como identificador e as demais colunas serão transformadas em linhas.</p>
+<p>A titulo de exemplo, esse é o head do dataframe antes da função melt:</p>
+<figure class="img"><img src="img/dados1.png" alt="fechamento_wide"></figure>
+<p>E esse é o head do dataframe após a função melt:</p>
+<figure class="img"><img src="img/dados2.png" alt="fechamento_long"></figure>
+<p>Percebe-se que as colunas representando tickers foram transformadas em linhas, de modo que existe agora uma linha para cada combinação de data e ticker, enquanto a coluna <em>value</em> representa o valor de fechamento ajustado para cada data e ticker.</p>
+<pre><code class="language-python">fechamento.value = fechamento.value.replace("-", np.nan)
+</code></pre>
+<p>Ao colocar todos os valores em uma única coluna é possível de maneira mais facilitada realizar sua manipulação, portanto iremos na coluna value, alterar todos os possíveis valores nulos para NaN, utilizando a função <em>replace</em> do pandas, possibilitando que cálculos possam ser realizados sem que haja erros.</p>
+<pre><code class="language-python">fechamento.value = fechamento.value.str.replace(".", "")
+fechamento.value = fechamento.value.str.replace(",", ".")
+</code></pre>
+<p>Outra etapa importante é a substituição de vírgulas por pontos, e a remoção de pontos, pois o formato de número utilizado na base de dados importada é diferente do padrão reconhecido pelo python, e para que o pandas possa reconhecer os valores como números é necessário que estejam no formato correto.</p>
+<pre><code class="language-python">fechamento.value = pd.to_numeric(fechamento.value)
+</code></pre>
+<p>Finalizando os processamentos na coluna <em>value</em>, é feita a conversão dos valores para o formato numérico, utilizando a função <em>pd.to_numeric</em> do pandas, uma vez que como devem se recordar na aula de Python, existem diversos tipos de varíaveis e tal varíavel se encontra como uma string, necessitando ser transformada em um valor numérico para que possa ser utilizada em cálculos.</p>
+<pre><code class="language-python">fechamento = pd.pivot_table(fechamento, values = "value", index = "Data", columns = "variable")
+</code></pre>
+<p>Agora será revertida a alteração feita anteriormente pela função <em>melt</em>, transformando a base de dados de <em>long</em> para <em>wide</em>, utilizando a função <em>pivot_table</em> do pandas, que recebe como parâmetros: <em>values</em> para o valor que será utilizado para preencher a tabela, <em>index</em> para a coluna que será utilizada como identificador das linhas e <em>columns</em> para a coluna que será utilizada como identificador das colunas.</p>
+<pre><code class="language-python">fechamento = fechamento.reset_index()
+</code></pre>
+<p>Finalizando o processo, é feito o reset do index, para que a coluna <em>Data</em> volte a ser uma coluna normal, e não mais o index do dataframe, possibilitando a manipulação da mesma.</p>
+<p>Esse é um exemplo de tratamento de dados, mas outras formas podem ser utilizadas a depender do banco de dados que você estiver trabalhando, e futuramente você poderá criar seu próprio padrão de tratamento de dados, que poderá ser reutilizado em futuros projetos.</p>
 
 
             </main>
