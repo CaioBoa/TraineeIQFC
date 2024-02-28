@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Economatica</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans+Condensed:ital,wght@0,300;1,300&family=Open+Sans:ital,wght@0,300;0,400;0,700;0,800;1,300;1,400;1,700;1,800&family=Oxygen+Mono&family=Josefin+Sans:ital,wght@0,200;0,600;1,200;1,600&display=swap">
+        <link rel="stylesheet" href="assets/css/reset.css">
+        <link rel="stylesheet" href="assets/css/highlight.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/color.css">
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+        <script src="assets/js/highlight.js"></script>
+        <script src="assets/js/script.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <a href="">abrir tudo</a>
+                <a href="">fechar tudo</a>
+            </header>
+            <main>
+
+<p><a href="/site/home.html">Curso de Iniciação IQFC</a></p>
+<h1>Economatica</h1>
+<p><strong>Economatica</strong> é a ferramenta que será utilizada para o download das bases de dados que utilizaremos em nossas estratégias.</p>
+<p>Para utlização da mesma é necessário que se possua licença ativa, porém essa licença já foi adquirida pelo Insper para nosso uso e pode ser acessada quando logado na rede do Insper ou através de VPN, como será demonstrado ao final do tutorial.</p>
+<h2>Acesso e Login</h2>
+<ol>
+<li>Acesse o site do <a href="https://www.economatica.com/" target="_blank">Economatica</a>.</li>
+</ol>
+<blockquote class="warning">
+<p>Aviso</p>
+<p>Lembre-se de estar logado na rede do Insper</p>
+</blockquote>
+<ol start="2">
+<li>
+<p>Clique em <em>Login</em> no canto superior direito da tela.</p>
+</li>
+<li>
+<p>Seleciona a opção <em>Plataforma Economatica</em>.</p>
+</li>
+</ol>
+<figure class="img"><img src="img/economatica1.png" alt=""></figure>
+<ol start="4">
+<li>
+<p>Insira seu email do Insper e clique em Login.</p>
+</li>
+<li>
+<p>Aguarde a tela de carregamento. (Pode demorar um pouco)</p>
+</li>
+</ol>
+<h2>Baixando um Banco de Dados</h2>
+<p>A título de exemplo iremos realizar o download de uma base de dados de ROE (Retorno sobre o Patrimônio Líquido) de empresas listadas na B3.</p>
+<ol>
+<li>Caso não esteja com a seguinte janela aberta, clique em <em>abrir nova janela</em> no canto superior esquerdo.</li>
+</ol>
+<figure class="img"><img src="img/economatica0.png" alt=""></figure>
+<ol start="2">
+<li>
+<p>Primeiramente é necessário selecionar os dados requisitados e para tal, clique em <em>Screening</em> na ala de <em>Ferramentas Básicas</em>.</p>
+</li>
+<li>
+<p>Em tal janela escolheremos o tipo de ativo que desejamos analisar, no nosso caso iremos em <em>Todos os Ativos</em> e em seguida abriremos os dados da ala <em>Screenig sem Filtros</em> para selecionarmos todos os ativos e filtrarmos na mão. Caso se deseje futuramente acessar uma filtragem já pronta basta entrar na aba <em>Ações</em> e em seguida <em>Básico</em>.</p>
+</li>
+<li>
+<p>Após selecionada iremos primeiramente realizar a filtragem por tipo de ativo, para acessarmos somente ações, portanto clique em <em>Criar Coluna</em>.</p>
+</li>
+<li>
+<p>Na aba de criação de coluna iremos acessar os <em>dados cadastrais</em>, e em <em>principais itens</em> selecionar <em>Tipo de Ativo</em>, então clicar em <em>OK</em>.</p>
+</li>
+<li>
+<p>Da mesma forma adicionaremos um filtro por bolsa/fonte, repetindo os mesmos passos em <em>dados cadastrais</em>, <em>Ações (bandeira do Brasil)</em> e <em>Bolsa/Fonte</em>.</p>
+</li>
+<li>
+<p>Agora com as colunas adicionadas aplicaremos nossos filtros. Para tal clique com o botão direito na coluna <em>Tipo de Ativo</em> e selecione <em>inserir filtro baseado nessa coluna</em>.</p>
+</li>
+<li>
+<p>Na aba de filtros selecione na última posição da linha <em>Tipo de Ativo Igual</em> a opção <em>Ação</em> para que somente ações sejam selecionadas na base de dados.</p>
+</li>
+<li>
+<p>Repita o mesmo processo para a coluna <em>Bolsa/Fonte</em> e selecione <em>America Latina - BRA Brasil - Bovespa</em>.</p>
+</li>
+<li>
+<p>Com nossos filtros prontos, iremos buscar nossos dados de interesse, no caso o ROE. Para tal clique novamente em <em>abrir nova janela</em> com a tela de Screening ainda aberta e selecione <em>Matrixx</em></p>
+</li>
+<li>
+<p>Na tela de Matrixx, clique em <em>Criar Coluna</em> e selecione <em>Indicadores Financeiros</em> e procure por uma das variações de <em>ROE</em>.</p>
+</li>
+<li>
+<p>Clique em <em>OK</em></p>
+</li>
+<li>
+<p>Novamente na tela de Maatrix, agora com todos os dados selecionados clique no icone de <em>três listras</em> e seleciona <em>Exportar (XLS, XLSX, PDF, TXT, CSV, JSON)</em>.</p>
+</li>
+<li>
+<p>Selecione as opções <em>CSV</em> (para um arquivo mais leve), <em>Salvar arquivo com nome</em> e escolher o nome desejado, <em>Para todos ativos da janela Screening</em>, <em>Todos ativos em um único ativo</em></p>
+</li>
+<li>
+<p>Confirme o download e aguarde o mesmo ser concluído (Pode demorar um pouco).</p>
+</li>
+</ol>
+<h2>Acesso via VPN</h2>
+<p>Caso esteja fora da rede do Insper, é necessário o uso de uma VPN para acessar a Economatica. Para tal siga os seguintes passos:</p>
+
+
+            </main>
+            <footer>
+                <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">
+                    <img alt="CC BY-SA 4.0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" title="Creative Commons Attribution-ShareAlike 4.0 International License"/>
+                </a>
+                © 2022 Marcelo Hashimoto
+            </footer>
+        </div>
+    </body>
+</html>
