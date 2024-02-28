@@ -21,7 +21,7 @@ Curso de Iniciação IQFC
 | Low-Vol                 |    <a href="/TraineeIQFC/site/lowvol.html">Aula</a>       |
 | Quality                 |    <a href="/TraineeIQFC/site/quality.html">Aula</a>      |
 | Value                   |    <a href="/TraineeIQFC/site/value.html">Aula</a>        |
-| Projeto Final           |    <a href=/TraineeIQFC/site/projetofinal.html">Aula</a> |
+| Projeto Final           |    <a href="/TraineeIQFC/site/projetofinal.html">Aula</a> |
 
 ;;;
 
