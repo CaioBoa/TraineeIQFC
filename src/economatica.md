@@ -5,7 +5,7 @@ Economatica
 
 **Economatica** é a ferramenta que será utilizada para o download das bases de dados que utilizaremos em nossas estratégias.
 
-Para utlização da mesma é necessário que se possua licença ativa, porém essa licença já foi adquirida pelo Insper para nosso uso e pode ser acessada quando logado na rede do Insper ou através de VPN, como será demonstrado ao final do tutorial.
+Para utlização da mesma é necessário que se possua licença ativa, porém essa licença já foi adquirida pelo Insper para nosso uso e pode ser acessada quando logado na rede do Insper.
 
 Acesso e Login
 ------
@@ -63,8 +63,4 @@ A título de exemplo iremos realizar o download de uma base de dados de ROE (Ret
 
 15. Confirme o download e aguarde o mesmo ser concluído (Pode demorar um pouco).
 
-Acesso via VPN
-------
-
-Caso esteja fora da rede do Insper, é necessário o uso de uma VPN para acessar a Economatica. Para tal siga os seguintes passos:
 

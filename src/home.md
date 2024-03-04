@@ -4,7 +4,7 @@ Curso de Iniciação IQFC
 ;;;Tutoriais
 |-------------------------------|-----------------------------------------------|
 | O que é Factor Investing      |    <a href="/TraineeIQFC/site/factor.html">Aula</a>       |
-| Economatica                   |    <a href="/TraineeIQFC/site/economatica.html">Aula</a>       |
+| Economatica                   |    <a href="/TraineeIQFC/site/economatica.html">Aula</a>  |
 | Interface de Desenvolvimento  |    <a href="/TraineeIQFC/site/interface.html">Aula</a>    |
 | Python                        |    <a href="/TraineeIQFC/site/python.html">Aula</a>       |
 | Pandas                        |    <a href="/TraineeIQFC/site/pandas.html">Aula</a>       |
@@ -15,7 +15,7 @@ Curso de Iniciação IQFC
 
 |-------------------------|-----------------------------------------------|
 | Tratamento de Dados     |    <a href="/TraineeIQFC/site/dados.html">Aula</a>        |
-| Entendendo aplicação em código |  <a href="/TraineeIQFC/site/codigo.html">Aula</a>  |
+| Estrutura de Código     |  <a href="/TraineeIQFC/site/codigo.html">Aula</a>         |
 | Momentum                |    <a href="/TraineeIQFC/site/momentum.html">Aula</a>     |
 | Size                    |    <a href="/TraineeIQFC/site/size.html">Aula</a>         |
 | Low-Vol                 |    <a href="/TraineeIQFC/site/lowvol.html">Aula</a>       |

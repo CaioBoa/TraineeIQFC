@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <title>COMING SOON</title>
+        <title>Estruturação do Código</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans+Condensed:ital,wght@0,300;1,300&family=Open+Sans:ital,wght@0,300;0,400;0,700;0,800;1,300;1,400;1,700;1,800&family=Oxygen+Mono&family=Josefin+Sans:ital,wght@0,200;0,600;1,200;1,600&display=swap">
@@ -24,7 +24,34 @@
             <main>
 
 <p><a href="/TraineeIQFC/site/home.html">Curso de Iniciação IQFC</a></p>
-<h1>COMING SOON</h1>
+<h1>Estruturação do Código</h1>
+<p>Essa aula pode servir como uma prévia de como você pode estruturar seu código para a estratégia quantitativa que você irá desenvolver, servindo como uma primeira parte de um guia para o projeto final.</p>
+<p>A estruturação do código é extremamente importante para que o mesmo seja de fácil compreensão e manutenção, e para que futuramente você possa reutilizar o mesmo código em outros projetos.</p>
+<p>Recomenda-se que estruture seu projeto em um arquivo do tipo .ipynb, que é um arquivo do Jupyter Notebook, que permite a execução de código em Python de forma interativa, e a inserção de texto explicativo entre os códigos, de modo que você possa rodar cédula a cédula sem precisar carregar todos os dados a cada vez que for rodar o código.</p>
+<p>Em suma, um código de estratégia quantitativa pode ser estruturado em 5 partes:</p>
+<ol>
+<li>Importação de Bibliotecas</li>
+<li>Leitura e Tratamento de Dados</li>
+<li>Definição de Varíaveis</li>
+<li>Estratégia e Backtest</li>
+<li>Análise de Resultados</li>
+</ol>
+<h2>Importação de Bibliotecas</h2>
+<p>A primeira etapa do código é a importação das bibliotecas que serão utilizadas no projeto. A titulo de exemplo, um código básico pode ser estruturado da seguinte forma:</p>
+<pre><code class="language-python">import pandas as pd
+import datetime as dt
+import numpy as np
+import quantstats as qs
+</code></pre>
+<p>É interessante reservar uma cédula única de seu arquivo para a importação de bibliotecas, de modo que você possa facilmente identificar quais bibliotecas estão sendo utilizadas em seu projeto.</p>
+<h2>Leitura e Tratamento de Dados</h2>
+<p>A segunda etapa do código é a importação e o tratamento dos dados que serão utilizados em sua estratégia. Para tal é interessante que você crie uma cédula única para leitura e tratamento de cada um dos bancos de dados utilizados, de modo que possa carrega-los separadamente.</p>
+<p>O modelo para leitura e tratamento de dados pode ser encontrado na aula de Tratamento de Dados.</p>
+<h2>Definição de Varíaveis</h2>
+<p>A terceira etapa do cógido é a definição de variáveis importantes para sua estratégia.</p>
+<p>Tais variáveis serão melhor abordadas na aula de Projeto Final, após o pleno entendimento dos fatores e da estruturação do projeto.</p>
+<h2>Estratégia e Backtest</h2>
+<p>Esse é o coração do seu projeto, onde você irá definir suas estratégias e realizar seus backtests.</p>
 
 
             </main>
