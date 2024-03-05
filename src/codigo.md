@@ -14,7 +14,7 @@ Em suma, um código de estratégia quantitativa pode ser estruturado em 5 partes
 1. Importação de Bibliotecas
 2. Leitura e Tratamento de Dados
 3. Definição de Varíaveis
-4. Estratégia e Backtest
+4. Backtest
 5. Análise de Resultados
 
 Importação de Bibliotecas
@@ -45,8 +45,31 @@ A terceira etapa do cógido é a definição de variáveis importantes para sua 
 
 Tais variáveis serão melhor abordadas na aula de Projeto Final, após o pleno entendimento dos fatores e da estruturação do projeto.
 
-Estratégia e Backtest
+Backtest
 ------
 
-Esse é o coração do seu projeto, onde você irá definir suas estratégias e realizar seus backtests.
+Esse é o coração do seu projeto, onde você irá definir suas estratégias e realizar os backtests.
+
+*Estratégias* serão os blocos de código correspondentes a aplicação de seus fatores para determinado período de tempo definido.
+
+As estratégias correspondem a apenas uma iteração do código, porém o mesmo terá de ser iterado diversas vezes para que se possa analisar o resultado real que sua estratégia teria em determinado período de tempo passado.
+
+Para tal existe o *Backtest*, que se resume a um grande loop que atua no período de tempo de análise, no qual sua estratégia acumulará seus resultados.
+
+A partir do backtest conseguimos analisar o resultado que nossa estratégia teria se utilizada em determinado período da história, como forma de validação da mesma.
+
+Análise de Resultados
+------
+
+Por fim analisaremos os resultados obtidos em nosso backtest, e a partir disso poderemos validar ou não nossa estratégia.
+
+Essa etapa do projeto se resume a extrair indicadores interessantes de desempenho que possam auxiliar na decisão de adesão ou não de sua estratégia. Para tal recomendamos o uso da biblioteca quantstats do Pyhton, que apresenta diversos indicadores de desempenho.
+
+Esquema Ilustrativo de Estruturação
+------
+
+![Estruturação do Código](codigo.png)
+
+
+
 

@@ -19,37 +19,17 @@ A ideia que circunda o fator é de aproveitar os momentos de alta da ação, ide
 Implementação em Python
 ---------
 
-A implementação em Python do fator requer apenas a base de dados de fechamento, uma vez que se baseia apenas nos valores anteriores para filtragem dos ativos.
+Para a aplicação em código do fator momentum a única base de dados necessária para análise será a base de dados **fechamento**, que contém o valor de fechamento de cada ativo em cada dia.
 
-Primeiramente realize a importação das bibliotecas necessárias.
-```python
-import pandas as pd
-import numpy as np
-import datetime as dt
-```
+Primeiramente, defina o período de análise e o período de lookback, que é o período de tempo que será analisado para a definição do fator momentum. No caso a seguir, o período de lookback é de 3 meses.
 
-Em sequência realize o tratamento da base de dados de fechamento. No caso a seguir observamos o tratamento da base de dados de fechamento baixada através do site Economatica.
-```python
-fechamento = pd.read_csv("fechamento.csv", delimiter=";")
-fechamento.columns = fechamento.columns.str.replace("Fechamento\najust p/ prov\nEm moeda orig\n", "", regex = False)
-fechamento["Data"] = pd.to_datetime(fechamento["Data"], format="%d/%m/%Y")
-fechamento = fechamento.melt(id_vars =  "Data")
-fechamento.value = fechamento.value.replace("-", np.nan)
-fechamento.value = fechamento.value.str.replace(".", "")
-fechamento.value = fechamento.value.str.replace(",", ".")
-fechamento.value = pd.to_numeric(fechamento.value)
-fechamento = pd.pivot_table(fechamento, values = "value", index = "Data", columns = "variable")
-fechamento = fechamento.reset_index()
-```
-
-Em seguida, defina seus valores de lookback e data de início. A definição de tais valores depende exclusivamente da estratégia utilizada.
 ```python
 lookback = 3
 dataInicio = pd.Timestamp(dt.date(2010, 1, 1))
 dataAnalise = dataInicio - pd.DateOffset(months = lookback)
 ```
 
-Por fim, realize o cálculo do fator momentum. No caso a seguir, o cálculo é realizado através da variação percentual acumulada dos últimos 3 meses.
+Enfim realize o cálculo do fator momentum. No caso a seguir, o cálculo é realizado através da variação percentual acumulada dos últimos 3 meses.
 ```python
 # Filtragem da base de dados para o momento de análise
 momentum = fechamento[(fechamento["Data"] < dataInicio) & (fechamento["Data"] > dataAnalise)]
@@ -79,3 +59,7 @@ momentum = momentum.pct_change(fill_method=None).add(1).cumprod().add(-1)
 - add(-1) é necessário para que o valor final seja a variação percentual acumulada, e não o valor acumulado, exemplo:
     - Se a variação percentual for de 180%, o valor final será 1,8, sendo que cumprod retornaria 2,8
     - Se a variação percentual for de -180%, o valor final será -1,8, sendo que cumprod retornaria -0,8
+
+!!!Aviso
+Tal bloco de código se aplica somente para uma iteração da base de dados, ou seja, para um único momento de análise. Para a realização efetiva do teste do fator momentum, é necessário que o bloco de código seja iterado para todo o dataset previsto.
+!!!
