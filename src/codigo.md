@@ -50,11 +50,19 @@ Backtest
 
 Esse é o coração do seu projeto, onde você irá definir suas estratégias e realizar os backtests.
 
-*Estratégias* serão os blocos de código correspondentes a aplicação de seus fatores para determinado período de tempo definido.
+* Do que se trata uma Estratégia?
+
+*Estratégias* serão os blocos de código correspondentes a aplicação de seus fatores para determinado período de tempo definido, resumidamente, estratégias são as regras que seu código seguirá para escolher os ativos a serem alocados.
 
 As estratégias correspondem a apenas uma iteração do código, porém o mesmo terá de ser iterado diversas vezes para que se possa analisar o resultado real que sua estratégia teria em determinado período de tempo passado.
 
-Para tal existe o *Backtest*, que se resume a um grande loop que atua no período de tempo de análise, no qual sua estratégia acumulará seus resultados.
+A cada iteração de tempo, sua estratégia será responsável por escolher os tickers a qual seu capital deve ser alocado.
+
+* E o Backtest?
+
+O *Backtest* se resume a um grande loop que atua no período de tempo de análise, no qual sua estratégia atuará escolhendo os ativos a serem alocados e simultaneamente o retorno acumulado de sua carteira hipotética será calculado.
+
+Por conta disso, o backtest sempre necessitará da base de dados **Preço de Fechamento** para que se possa calcular o retorno acumulado de sua carteira hipotética.
 
 A partir do backtest conseguimos analisar o resultado que nossa estratégia teria se utilizada em determinado período da história, como forma de validação da mesma.
 
