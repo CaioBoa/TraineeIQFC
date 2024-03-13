@@ -183,9 +183,224 @@ Para selecionar uma coluna específica de um dataframe, basta utilizar o nome da
 
 Tal coluna pode ser salva em uma varíavel desejada para futuras manipulações.
 
+* Seleção de linhas:
 
+```python
+df["20130102":"20130104"]
 
+Out:
+                   A         B         C         D
+2013-01-02  1.212112 -0.173215  0.119209 -1.044236
+2013-01-03 -0.861849 -2.104569 -0.494929  1.071804
+2013-01-04  0.721555 -0.706771 -1.039575  0.271860
+```
 
+Para selecionar linhas específicas de um dataframe, basta utilizar o index do intervalo de linhas desejadas entre colchetes.
+
+Tais Index costumam ser valores inteiros, porém como no caso acima podem ser alterados para qualquer valor desejado, como datas.
+
+Taletas seleções podem ser salvas em uma varíavel desejada para futuras manipulações.
+
+* Loc:
+
+```python
+df.loc[:, ["A", "B"]]
+
+Out: 
+                   A         B
+2013-01-01  0.469112 -0.282863
+2013-01-02  1.212112 -0.173215
+2013-01-03 -0.861849 -2.104569
+2013-01-04  0.721555 -0.706771
+2013-01-05 -0.424972  0.567020
+2013-01-06 -0.673690  0.113648
+```
+
+Também é possível selecionar linhas específicas de apenas algumas colunas do dataframe, seguindo a notação acima de *linhas ,  colunas* e utilizando o método **loc**.
+
+No caso acima estão sendo selecionadas todas as linhas das colunas A e B.
+
+!!! note
+Para selecionar todas as linhas de um dataframe, basta utilizar o operador **:**.
+Caso queira selecionar todas as linhas até determinado index x, basta utilizar **:x**.
+Caso queira selecionar todas as linhas a partir do index x, basta utilizar **x:**.
+E para selecionar todas as linhas entre os index x e y, basta utilizar **x:y**.
+!!!
+
+Além disso o método **loc** permite a seleção de linhas específicas, podendo ser selecionadas tanto por index quanto por valores de colunas.
+
+Para o seguinte dataframe:
+
+```python
+df = pd.DataFrame([[1, 2], [4, 5], [7, 8]],
+                  index=['cobra', 'viper', 'sidewinder'],
+                  columns=['max_speed', 'shield'])
+
+Out:
+            max_speed  shield
+cobra               1       2
+viper               4       5
+sidewinder          7       8
+```
+
+```python
+df.loc['viper']
+
+Out:
+max_speed    4
+shield       5
+```
+
+No caso acima, a linha com index "viper" foi selecionada.
+
+```python
+df.loc[df['shield'] > 6, ['max_speed']]
+
+            max_speed
+sidewinder          7
+```
+
+Nesse caso entretanto, a seleção foi feita utilizando um operador boleano para um valor de uma coluna, além de selecionar apena uma das colunas, demonstrando a versatilidade do método **loc**.
+
+* Iloc:
+
+Semelhante ao método loc, o método **iloc** permite a seleção de linhas e colunas específicas de um dataframe, porém utilizando a posição das linhas e colunas ao invés de seus valores.
+
+```python
+df.iloc[3]
+
+Out: 
+A    0.721555
+B   -0.706771
+C   -1.039575
+D    0.271860
+```
+
+O comando **iloc** também pode ser utilizado para seleção de colunas específicas como o método loc, porém utilizando também suas posições.
+
+```python
+df.iloc[[1, 2, 4], [0, 2]]
+Out: 
+                   A         C
+2013-01-02  1.212112  0.119209
+2013-01-03 -0.861849 -0.494929
+2013-01-05 -0.424972  0.276232
+```
+
+Documentação
+------------
+
+O Pandas possuí uma imensa versatilidade de funções e métodos que podem ser utilizados para manipulação de dataframes e simplificação de processos.
+
+Caso surjam duvidas sobre a utilização de algum método, escolha de argumentos ou a procura de um método específico, a documentação oficial do Pandas é uma ótima fonte de informações.
+
+<a href="https://pandas.pydata.org/docs/index.html" target=”_blank”>Documentação Oficial</a>
+
+Caso hajam dúvidas básicas quanto ao entendimento do Pandas recomenda-se o seguinte tutorial de 10 minutos no qual esse guia se inspirou:
+
+<a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html" target=”_blank”>10 Minutes to Pandas</a>
+
+E caso jà esteja habituado com a manipulação de dados via Excel, o seguinte tutorial pode ser de grande ajuda:
+
+<a href="https://pandas.pydata.org/docs/getting_started/comparison/comparison_with_spreadsheets.html#compare-with-spreadsheets" target=”_blank”>Comparison with spreadsheets</a>
+
+Métodos Úteis Para Projetos da Entidade
+---------------------------------------
+
+Embora seja interessante que descubram os métodos e funções do Pandas utilizando da documentação oficial segue abaixo uma lista de métodos e funções que serão de grande utilidade para os projetos da entidade.
+
+* read_csv(): Método utilizado para leitura de um arquivo .csv e transformação do mesmo em um dataframe, salvando o mesmo em uma variável x.
+
+```python
+x = pd.read_csv("nome_do_arquivo.csv")
+```
+
+* str_replace(): Método utilizado para substituição de strings em uma séries do panda em que o primeiro argumento é a string a ser substituída e o segundo argumento é a nova string.
+
+```python
+x["nome_da_coluna"] = x["nome_da_coluna"].str.replace("string_a_ser_substituida", "nova_string")
+```
+
+* strip(): Método utilizado para remoção de espaços em branco de uma série do panda.
+
+```python
+x["nome_da_coluna"] = x["nome_da_coluna"].str.strip()
+```
+
+* pd.to_datetime(): Método utilizado para transformação de varíaveis de uma série do panda em um formato de data.
+
+```python
+x["nome_da_coluna"] = pd.to_datetime(x["nome_da_coluna"])
+```
+
+* melt(): Método utilizado para transformação de um dataframe de formato *wide* para *long*, onde o argumento *id_vars* é a coluna que será mantida como identificador e as demais colunas serão transformadas em linhas.
+
+Tal método será melhor compreendido na seção de tratamento de dados.
+
+```python
+x = x.melt(id_vars = "nome_da_coluna")
+```
+
+* pivot_table(): Método utilizado para transformação de um dataframe de formato *long* para *wide*, onde o argumento *values* é a coluna que será transformada em linhas, o argumento *index* é a coluna que será mantida como identificador e o argumento *columns* é a coluna que será transformada em colunas.
+
+```python
+x = pd.pivot_table(x, values = "nome_da_coluna", index = "nome_da_coluna", columns = "nome_da_coluna")
+```
+
+* pd.to_numeric(): Método utilizado para transformação de varíaveis de uma série do panda em varíaveis numéricas
+```python
+x["nome_da_coluna"] = pd.to_numeric(x["nome_da_coluna"])
+```
+
+* reset_index(): Método utilizado para resetar o index de um dataframe, gerando uma nova coluna de index com valores inteiros e transforamdno a antiga coluna de index em uma coluna comum.
+
+```python
+x = x.reset_index()
+```
+
+* pd.Timestamp(): Método utilizado para definição de uma varíavel de data a partir de um valor de data.
+
+Para tal valor de data é necessário utilizar a função **dt.date** do python da biblioteca **datetime**.
+
+```python
+dataInicio = pd.Timestamp(dt.date(2010, 1, 1))
+```
+
+* Operador &
+
+O operador & é utilizado para a realização de operações lógicas do tipo *and* em uma série do panda.
+
+Caso utilizado como uma operação lógica entre dois dataframes, tal operador irá retornar os pontos de interseção entre os dois dataframes.
+
+```python
+x = x[(x["nome_da_coluna"] < dataInicio) & (x["nome_da_coluna"] > dataAnalise)]
+```
+
+* pct_change(): Método utilizado para transformação de uma série do panda em uma série de variação percentual em relação ao valor anterior.
+
+```python
+x = x.pct_change(fill_method=None)
+```
+
+* add(): Método utilizado para adição de um valor constante a todos os valores de uma série do panda.
+
+```python
+x = x.add(1)
+```
+
+* cumprod(): Método utilizado para transformação de uma série do panda em uma série de variação percentual acumulada.
+
+Em resumo, tal método retorna o valor acumulado de todas as linhas anteriores a linha atual, de modo que o valor final é o valor acumulado de todas as linhas.
+
+```python
+x = x.cumprod()
+```
+
+* set_index(): Método utilizado para definição de uma coluna específica como index do dataframe.
+
+```python
+x = x.set_index('nome_da_coluna')
+```
 
 
 

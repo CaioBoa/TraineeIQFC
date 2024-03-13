@@ -8,7 +8,7 @@ Explicação do Fator
 
 O fator size é fundalmentalmente a análise de um ativo em função de seu tamanho, ou seja, a análise de um ativo em função de seu valor de mercado. 
 
-O fator de momentum possue essencialmente duas interpretações a priori:
+O fator de size possue essencialmente duas interpretações a priori:
 
 * Empresas menores possuem mais espaço para crescer no mercado
 
