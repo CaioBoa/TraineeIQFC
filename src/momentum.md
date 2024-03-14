@@ -52,7 +52,6 @@ momentum = momentum.set_index('Data')
 ```
 
 A seguinte linha é a base para o cálculo do fator momentum, portanto, analisaremos ela mais a fundo:
-
 ```python
 momentum = momentum.pct_change(fill_method=None).add(1).cumprod().add(-1)
 ```
@@ -69,7 +68,6 @@ momentum = momentum.pct_change(fill_method=None).add(1).cumprod().add(-1)
 A linha seguinte é responsável por selecionar apenas o último dia do período de análise, uma vez que nos interessa apenas a variação percentual total de nosso período de lookback.
 
 Se selecionamos um lookback de 3 meses, somente nos interessa a variação percentual ao final dos 3 meses.
-
 ```python
 momentum = momentum.iloc[-1]
 ```
