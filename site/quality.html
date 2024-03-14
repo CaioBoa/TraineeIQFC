@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <title>COMING SOON</title>
+        <title>Quality</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans+Condensed:ital,wght@0,300;1,300&family=Open+Sans:ital,wght@0,300;0,400;0,700;0,800;1,300;1,400;1,700;1,800&family=Oxygen+Mono&family=Josefin+Sans:ital,wght@0,200;0,600;1,200;1,600&display=swap">
@@ -24,7 +24,40 @@
             <main>
 
 <p><a href="/TraineeIQFC/site/home.html">Curso de Iniciação IQFC</a></p>
-<h1>COMING SOON</h1>
+<h1>Quality</h1>
+<h2>Explicação do Fator</h2>
+<p>O fator quality, como o nome sugere, tem o objetivo de mensurar a qualidade das empresas, sobre o previsto de que ativos com um bom funcionamento, investimentos e rendimentos, tendem a se valorizar ao longo do tempo.</p>
+<p>No geral, ativos com indicadores altos de quality demonstram risco histórico menor que o do mercado e são considerados defensivos, ou seja, não são necessariamente cíclicos.</p>
+<p>Alguns indicadores	 que podem ser utilizados para medir a qualidade do ativo são: ROE, ROA, ROIC, fluxo de caixa, alavancagem financeira etc.</p>
+<h2>Implementação em Python</h2>
+<p>Nesse exemplo, utilizaremos o ROE (Return on Equity), sinta-se livre para utilizar quaisquer outros indicadores ou combinações em suas estratégias.</p>
+<p>Será utilizada a base de dados de ROE, encontrada no economática para esse exemplo, lembre-se de fazer o tratamento de seus dados corretamente antes de utilizar.</p>
+<p>Primeiramente, será escolhido uma data final e inicial, assim como o lookback. Ao analisar os dados note como ROIC, ROE e ROA são os mesmos durante um trimestre inteiro, pela natureza do indicador, então lembre-se disso quando escolher seu lookback.</p>
+<pre><code class="language-python">data_inicial = pd.Timestamp(dt.date(2007,1,1))
+data_final = pd.Timestamp(dt.date(2023,8,31))
+
+lookback_quality = 3
+</code></pre>
+<p>Importante lembrar que esse exemplo foi feito na parte iterada do código do backtest. Nesse caso, estamos apenas filtrando os ROEs positivos e então ordenando-os em ordem decrescente, já que apenas os ativos com os maiores ROEs serão selecionados.</p>
+<pre><code class="language-python">data_analise_quality = data_inicial - pd.DateOffset(months = lookback_quality)
+        base_quality = roe[(roe['Data'] &lt; data_inicial) &amp; (roe['Data'] &gt;= data_analise_quality)]
+        base_quality = base_quality.iloc[-1]
+        base_quality = base_quality[(base_quality &gt; 0)]
+        base_quality = base_quality.reset_index()
+        base_quality = base_quality.sort_values(by = base_quality.columns[1], ascending = False)
+</code></pre>
+<p>Outro exemplo útil, seria caso você tivesse montado seu próprio universo na iteração e quisesse calcular o fator apenas para ele (pode ser aplicado em outros fatores além do quality).</p>
+<pre><code class="language-python">data_analise_quality = data_inicial - pd.DateOffset(months = lookback_quality)
+        base_quality = roe[(roe['Data'] &lt; data_inicial) &amp; (roe['Data'] &gt;= data_analise_quality)]
+        base_quality = base_quality.melt(id_vars = 'Data')
+        base_quality = base_quality[base_quality['variable'].isin(ibx)]
+        base_quality = base_quality.pivot_table(index = 'Data', values = 'value', columns = 'variable')
+        base_quality = base_quality.iloc[-1]
+        base_quality = base_quality[(base_quality &gt; 0)]
+        base_quality = base_quality.reset_index()
+        base_quality = base_quality.sort_values(by = base_quality.columns[1], ascending = False)
+</code></pre>
+<p>Nesse caso, previamente foi calculado previamente o IBX100, e queria-se ver os maiores ROEs dentro desse universo. Logo, utiliza-se o código acima para filtrar os ativos pelo nome, selecionando apenas os que o ticker aparece na lista “ibx”.</p>
 
 
             </main>
