@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <title>COMING SOON</title>
+        <title>Python</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans+Condensed:ital,wght@0,300;1,300&family=Open+Sans:ital,wght@0,300;0,400;0,700;0,800;1,300;1,400;1,700;1,800&family=Oxygen+Mono&family=Josefin+Sans:ital,wght@0,200;0,600;1,200;1,600&display=swap">
@@ -24,7 +24,1187 @@
             <main>
 
 <p><a href="/TraineeIQFC/site/home.html">Curso de Iniciação IQFC</a></p>
-<h1>COMING SOON</h1>
+<h1>Python</h1>
+<p>Neste tutorial, vamos aprender os primeiros passos para começar a programar em Python. Percorremos assuntos básicos, como o que são e como declarar variáveis, operadores aritméticos, operadores de comparação, operadores lógicos, estruturas condicionais, estruturas de repetição, funções, strings, listas, tuplas, dicionários, conjuntos, e manipulação de arquivos.</p>
+<blockquote class="warning">
+<p>Aviso</p>
+<p>Para seguir este tutorial, você precisa ter o Python instalado em seu computador. Se você ainda não tem o Python instalado, siga o tutorial de <a href="/TraineeIQFC/site/interface.html">Interface de Desenvolvimento</a>.</p>
+</blockquote>
+<h2>Variáveis</h2>
+<p>Variáveis são espaços na memória do computador que armazenam valores. Em Python, a declaração de variáveis é feita de forma simples, basta atribuir um valor a um nome. Por exemplo:</p>
+<pre><code class="language-python">x = 5
+y = "Hello, World!"
+</code></pre>
+<p>Neste exemplo, <em>x</em> é uma variável do tipo inteiro, e <em>y</em> é uma variável do tipo string.</p>
+<h2>Operadores Aritméticos</h2>
+<p>Os operadores aritméticos são utilizados para realizar operações matemáticas. Em Python, temos os seguintes operadores aritméticos:</p>
+<figure class="table"><table>
+<thead>
+<tr>
+<th>Operador</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="frame"> +</td>
+<td>Adição</td>
+</tr>
+<tr>
+<td>-</td>
+<td>Subtração</td>
+</tr>
+<tr>
+<td>*</td>
+<td>Multiplicação</td>
+</tr>
+<tr>
+<td>/</td>
+<td>Divisão</td>
+</tr>
+<tr>
+<td>%</td>
+<td>Módulo</td>
+</tr>
+<tr>
+<td>**</td>
+<td>Exponenciação</td>
+</tr>
+<tr>
+<td>//</td>
+<td>Divisão inteira</td>
+</tr>
+</tbody>
+</table></figure>
+<blockquote class="question">
+<p>Exemplo</p>
+<pre><code class="language-python">x = 5
+y = 2
+
+print(x + y) # 7
+
+print(x - y) # 3
+
+print(x * y) # 10
+
+print(x / y) # 2.5
+
+print(x % y) # 1
+
+print(x ** y) # 25
+
+print(x // y) # 2
+</code></pre>
+</blockquote>
+<h2>Operadores de Comparação</h2>
+<p>Os operadores de comparação são utilizados para comparar dois valores. Em Python, temos os seguintes operadores de comparação:</p>
+<figure class="table"><table>
+<thead>
+<tr>
+<th>Operador</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>==</td>
+<td>Igual</td>
+</tr>
+<tr>
+<td class="alert">=</td>
+<td>Diferente</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>Maior</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>Menor</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>Maior ou igual</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>Menor ou igual</td>
+</tr>
+</tbody>
+</table></figure>
+<blockquote class="question">
+<p>Exemplo</p>
+<pre><code class="language-python">x = 5
+y = 2
+
+print(x == y) # False
+
+print(x != y) # True
+
+print(x &gt; y) # True
+
+print(x &lt; y) # False
+
+print(x &gt;= y) # True
+
+print(x &lt;= y) # False
+</code></pre>
+</blockquote>
+<h2>Operadores Lógicos</h2>
+<p>Os operadores lógicos são utilizados para combinar declarações condicionais. Em Python, temos os seguintes operadores lógicos:</p>
+<figure class="table"><table>
+<thead>
+<tr>
+<th>Operador</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>and</td>
+<td>Retorna True se ambas as declarações forem verdadeiras</td>
+</tr>
+<tr>
+<td>or</td>
+<td>Retorna True se uma das declarações for verdadeira</td>
+</tr>
+<tr>
+<td>not</td>
+<td>Inverte o resultado, retorna False se o resultado for verdadeiro</td>
+</tr>
+</tbody>
+</table></figure>
+<blockquote class="question">
+<p>Exemplo</p>
+<pre><code class="language-python">x = 5
+y = 2
+
+print(x &gt; 3 and x &lt; 10) # True
+
+print(x &gt; 3 or x &lt; 4) # True
+
+print(not(x &gt; 3 and x &lt; 10)) # False
+</code></pre>
+</blockquote>
+<h2>Estruturas Condicionais</h2>
+<p>As estruturas condicionais são utilizadas para tomar decisões com base em diferentes condições. Em Python, temos a estrutura condicional <em>if</em>, que é utilizada para executar um bloco de código se a condição for verdadeira, e a estrutura condicional <em>else</em>, que é utilizada para executar um bloco de código se a condição for falsa.</p>
+<blockquote class="question">
+<p>Exemplo</p>
+<pre><code class="language-python">x = 5
+y = 2
+
+if x &gt; y:
+    print("x é maior que y")
+else:
+    print("x é menor ou igual a y")
+</code></pre>
+</blockquote>
+<p>Também temos a estrutura condicional <em>elif</em>, que é utilizada para executar um bloco de código se a primeira condição for falsa, e a condição do <em>elif</em> for verdadeira.</p>
+<blockquote class="question">
+<p>Exemplo</p>
+<pre><code class="language-python">x = 5
+y = 2
+
+if x &gt; y:
+    print("x é maior que y")
+elif x &lt; y:
+    print("x é menor que y")
+else:
+    print("x é igual a y")
+</code></pre>
+</blockquote>
+<h2>Funções</h2>
+<p>Nos itens anteriores, vimos como utilizar estruturas condicionais e de repetição para executar um bloco de código. No entanto, se precisarmos executar o mesmo bloco de código em diferentes partes do programa, teremos que repetir o código. Para evitar a repetição de código, podemos utilizar funções. Em Python, uma função é definida utilizando a palavra-chave <em>def</em>, seguida pelo nome da função e os parâmetros entre parênteses. Por exemplo:</p>
+<pre><code class="language-python">def my_function():
+    print("Hello, World!")
+</code></pre>
+<p>Neste exemplo, <em>my_function</em> é o nome da função, e o bloco de código que será executado está indentado abaixo da declaração da função. Para chamar a função, basta utilizar o nome da função seguido pelos parênteses. Por exemplo:</p>
+<pre><code class="language-python">my_function()
+</code></pre>
+<p>Funções podem receber parâmetros, que são valores que a função espera receber quando é chamada. Por exemplo:</p>
+<pre><code class="language-python">def my_function(x):
+    print(x)
+
+my_function("Hello, World!")
+</code></pre>
+<p>Neste exemplo, a função <em>my_function</em> recebe um parâmetro <em>x</em>, e imprime o valor de <em>x</em>.</p>
+<blockquote class="question">
+<p>Exercício de Fixação</p>
+<p>Crie uma função que receba dois números como parâmetros e retorne a soma dos dois números.</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<pre><code class="language-python">def soma(x, y):
+    return x + y
+
+print(soma(5, 2)) # 7
+</code></pre>
+</details>
+</blockquote>
+<details class="answer">
+<summary>Dica</summary>
+<p>Para mais informações sobre funções, consulte a <a href="https://docs.python.org/3/tutorial/controlflow.html#defining-functions" target="_blank">documentação oficial</a>.</p>
+</details>
+<h2>Funções Nativas</h2>
+<p>Ainda nos itens anteriores, em alguns exemplos, utilizamos funções nativas do Python, como <strong>print( )</strong>, <strong>len( )</strong> e <strong>range( )</strong>. As funções nativas do Python são funções que já vêm com a linguagem, e estão disponíveis para serem utilizadas em qualquer programa.</p>
+<p>Disponibilizamos, a seguir, uma lista com algumas funções nativas do Python, se você quiser conhecer mais funções nativas, consulte a <a href="https://docs.python.org/3/library/functions.html" target="_blank">documentação oficial</a>.</p>
+<details class="answer">
+<summary>Tabela de Funções Nativas</summary>
+<figure class="table"><table>
+<thead>
+<tr>
+<th>Função</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>abs( )</td>
+<td>Retorna o valor absoluto de um número</td>
+</tr>
+<tr>
+<td>all( )</td>
+<td>Retorna True se todos os itens de um iterável forem verdadeiros</td>
+</tr>
+<tr>
+<td>any( )</td>
+<td>Retorna True se algum item de um iterável for verdadeiro</td>
+</tr>
+<tr>
+<td>bin( )</td>
+<td>Converte um número inteiro em binário</td>
+</tr>
+<tr>
+<td>bool( )</td>
+<td>Retorna o valor booleano de um objeto</td>
+</tr>
+<tr>
+<td>chr( )</td>
+<td>Retorna um caractere correspondente ao código Unicode</td>
+</tr>
+<tr>
+<td>complex( )</td>
+<td>Retorna um número complexo</td>
+</tr>
+<tr>
+<td>dict( )</td>
+<td>Retorna um dicionário</td>
+</tr>
+<tr>
+<td>float( )</td>
+<td>Retorna um número de ponto flutuante</td>
+</tr>
+<tr>
+<td>hex( )</td>
+<td>Converte um número inteiro em hexadecimal</td>
+</tr>
+<tr>
+<td>int( )</td>
+<td>Retorna um número inteiro</td>
+</tr>
+<tr>
+<td>len( )</td>
+<td>Retorna o comprimento de um iterável</td>
+</tr>
+<tr>
+<td>list( )</td>
+<td>Retorna uma lista</td>
+</tr>
+<tr>
+<td>max( )</td>
+<td>Retorna o maior item de um iterável</td>
+</tr>
+<tr>
+<td>min( )</td>
+<td>Retorna o menor item de um iterável</td>
+</tr>
+<tr>
+<td>oct( )</td>
+<td>Converte um número inteiro em octal</td>
+</tr>
+<tr>
+<td>ord( )</td>
+<td>Retorna o código Unicode de um caractere</td>
+</tr>
+<tr>
+<td>pow( )</td>
+<td>Retorna o valor de x elevado à potência de y</td>
+</tr>
+<tr>
+<td>print( )</td>
+<td>Imprime um objeto</td>
+</tr>
+<tr>
+<td>range( )</td>
+<td>Retorna uma sequência de números</td>
+</tr>
+<tr>
+<td>round( )</td>
+<td>Retorna um número arredondado</td>
+</tr>
+<tr>
+<td>set( )</td>
+<td>Retorna um conjunto</td>
+</tr>
+<tr>
+<td>sorted( )</td>
+<td>Retorna uma lista ordenada</td>
+</tr>
+<tr>
+<td>str( )</td>
+<td>Retorna uma string</td>
+</tr>
+<tr>
+<td>sum( )</td>
+<td>Retorna a soma de todos os itens de um iterável</td>
+</tr>
+<tr>
+<td>tuple( )</td>
+<td>Retorna uma tupla</td>
+</tr>
+<tr>
+<td>type( )</td>
+<td>Retorna o tipo de um objeto</td>
+</tr>
+<tr>
+<td>zip( )</td>
+<td>Retorna um objeto zip</td>
+</tr>
+</tbody>
+</table></figure>
+</details>
+<h2>Strings</h2>
+<p>Strings são sequências de caracteres, e são utilizadas para representar texto em Python. Em Python, as strings são declaradas utilizando aspas simples ou duplas. Por exemplo:</p>
+<pre><code class="language-python">x = "Hello, World!"
+y = 'Hello, World!'
+</code></pre>
+<p>Podemos utilizar diversas funções nativas do Python para manipular strings. Listamos algumas na tabela abaixo.</p>
+<details class="answer">
+<summary>Tabela de Funções para Strings</summary>
+<figure class="table"><table>
+<thead>
+<tr>
+<th>Função</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>capitalize( )</td>
+<td>Converte o primeiro caractere para maiúsculas</td>
+</tr>
+<tr>
+<td>casefold( )</td>
+<td>Converte a string para minúsculas</td>
+</tr>
+<tr>
+<td>count( )</td>
+<td>Retorna o número de vezes que um valor específico aparece na string</td>
+</tr>
+<tr>
+<td>find( )</td>
+<td>Retorna a posição da primeira ocorrência do valor especificado</td>
+</tr>
+<tr>
+<td>index( )</td>
+<td>Retorna a posição da primeira ocorrência do valor especificado</td>
+</tr>
+<tr>
+<td>isalnum( )</td>
+<td>Retorna True se todos os caracteres da string forem alfanuméricos</td>
+</tr>
+<tr>
+<td>isalpha( )</td>
+<td>Retorna True se todos os caracteres da string forem alfabéticos</td>
+</tr>
+<tr>
+<td>isdecimal( )</td>
+<td>Retorna True se todos os caracteres da string forem decimais</td>
+</tr>
+<tr>
+<td>isdigit( )</td>
+<td>Retorna True se todos os caracteres da string forem dígitos</td>
+</tr>
+<tr>
+<td>islower( )</td>
+<td>Retorna True se todos os caracteres da string estiverem em minúsculas</td>
+</tr>
+<tr>
+<td>isnumeric( )</td>
+<td>Retorna True se todos os caracteres da string forem numéricos</td>
+</tr>
+<tr>
+<td>isspace( )</td>
+<td>Retorna True se todos os caracteres da string forem espaços</td>
+</tr>
+<tr>
+<td>istitle( )</td>
+<td>Retorna True se a string estiver em formato de título</td>
+</tr>
+<tr>
+<td>isupper( )</td>
+<td>Retorna True se todos os caracteres da string estiverem em maiúsculas</td>
+</tr>
+<tr>
+<td>join( )</td>
+<td>Junta os elementos de uma lista em uma string</td>
+</tr>
+<tr>
+<td>len( )</td>
+<td>Retorna o comprimento da string</td>
+</tr>
+<tr>
+<td>lower( )</td>
+<td>Retorna a string em minúsculas</td>
+</tr>
+<tr>
+<td>lstrip( )</td>
+<td>Retorna uma versão da string com os espaços à esquerda removidos</td>
+</tr>
+<tr>
+<td>partition( )</td>
+<td>Retorna uma tupla onde a string é dividida em três partes</td>
+</tr>
+<tr>
+<td>replace( )</td>
+<td>Substitui uma string por outra</td>
+</tr>
+<tr>
+<td>rstrip( )</td>
+<td>Retorna uma versão da string com os espaços à direita removidos</td>
+</tr>
+<tr>
+<td>split( )</td>
+<td>Divide a string em substrings</td>
+</tr>
+<tr>
+<td>strip( )</td>
+<td>Retorna uma versão da string com os espaços removidos</td>
+</tr>
+<tr>
+<td>upper( )</td>
+<td>Retorna a string em maiúsculas</td>
+</tr>
+</tbody>
+</table></figure>
+</details>
+<blockquote class="question">
+<p>Exemplo</p>
+<pre><code class="language-python">x = "Hello, World!"
+
+print(len(x)) # 13
+
+print(x.lower()) # hello, world!
+
+print(x.upper()) # HELLO, WORLD!
+
+print(x.replace("H", "J")) # Jello, World!
+
+print(x.split(",")) # ['Hello', ' World!']
+</code></pre>
+</blockquote>
+<blockquote class="question">
+<p>Exercício de Fixação</p>
+<p>Crie uma função que receba uma string como parâmetro e retorne a string em maiúsculas.</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<pre><code class="language-python">def maiusculas(x):
+    return x.upper()
+
+print(maiusculas("hello, world!")) # HELLO, WORLD!
+</code></pre>
+</details>
+</blockquote>
+<details class="answer">
+<summary>Dica</summary>
+<p>Para mais informações sobre strings, consulte a <a href="https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str" target="_blank">documentação oficial</a>.</p>
+</details>
+<h2>Listas</h2>
+<p>Listas são sequências ordenadas de itens, e são utilizadas para armazenar múltiplos itens em uma única variável. Em Python, as listas são declaradas utilizando colchetes. Por exemplo:</p>
+<pre><code class="language-python">fruits = ["apple", "banana", "cherry"]
+
+nomes = ["João", "Maria", "José"]
+</code></pre>
+<p>Podemos utilizar diversas funções nativas do Python para manipular listas. Listamos algumas na tabela abaixo.</p>
+<details class="answer">
+<summary>Tabela de Funções para Listas</summary>
+<figure class="table"><table>
+<thead>
+<tr>
+<th>Função</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>append( )</td>
+<td>Adiciona um elemento ao final da lista</td>
+</tr>
+<tr>
+<td>clear( )</td>
+<td>Remove todos os elementos da lista</td>
+</tr>
+<tr>
+<td>copy( )</td>
+<td>Retorna uma cópia da lista</td>
+</tr>
+<tr>
+<td>count( )</td>
+<td>Retorna o número de elementos com o valor especificado</td>
+</tr>
+<tr>
+<td>extend( )</td>
+<td>Adiciona os elementos de uma lista (ou qualquer iterável) ao final da lista</td>
+</tr>
+<tr>
+<td>index( )</td>
+<td>Retorna o índice do primeiro elemento com o valor especificado</td>
+</tr>
+<tr>
+<td>insert( )</td>
+<td>Adiciona um elemento em uma posição específica</td>
+</tr>
+<tr>
+<td>pop( )</td>
+<td>Remove o elemento na posição especificada</td>
+</tr>
+<tr>
+<td>remove( )</td>
+<td>Remove o primeiro item com o valor especificado</td>
+</tr>
+<tr>
+<td>reverse( )</td>
+<td>Inverte a ordem da lista</td>
+</tr>
+<tr>
+<td>sort( )</td>
+<td>Ordena a lista</td>
+</tr>
+</tbody>
+</table></figure>
+</details>
+<blockquote class="question">
+<p>Exemplo</p>
+<pre><code class="language-python">fruits = ["apple", "banana", "cherry"]
+
+fruits.append("orange") 
+# ["apple", "banana", "cherry", "orange"]
+
+fruits.clear() 
+# []
+
+fruits = ["apple", "banana", "cherry"]
+
+x = fruits.copy() 
+# ["apple", "banana", "cherry"]
+
+print(fruits.count("cherry")) 
+# 1
+
+fruits.extend(["orange", "lemon", "pineapple"]) 
+# ["apple", "banana", "cherry", "orange", "lemon", "pineapple"]
+
+print(fruits.index("banana")) 
+# 1
+
+fruits.insert(1, "grape") 
+# ["apple", "grape", "banana", "cherry", "orange", "lemon", "pineapple"]
+
+fruits.pop(2) 
+# ["apple", "grape", "cherry", "orange", "lemon", "pineapple"]
+
+fruits.remove("grape") 
+# ["apple", "cherry", "orange", "lemon", "pineapple"]
+
+fruits.reverse() 
+# ["pineapple", "lemon", "orange", "cherry", "apple"]
+
+fruits.sort() 
+# ["apple", "cherry", "lemon", "orange", "pineapple"]
+
+fruits.sort(reverse = True)
+# ["pineapple", "orange", "lemon", "cherry", "apple"]
+</code></pre>
+</blockquote>
+<blockquote class="question">
+<p>Exercício de Fixação</p>
+<p>Crie uma função que receba uma lista de números como parâmetro e retorne a soma dos números.</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<pre><code class="language-python">def soma_lista(x):
+    return sum(x)
+
+print(soma_lista([1, 2, 3, 4, 5])) # 15
+</code></pre>
+</details>
+</blockquote>
+<details class="answer">
+<summary>Dica</summary>
+<p>Para mais informações sobre listas, consulte a <a href="https://docs.python.org/3/tutorial/datastructures.html" target="_blank">documentação oficial</a>.</p>
+</details>
+<h2>Tuplas</h2>
+<p>Tuplas são sequências ordenadas de itens, e são utilizadas para armazenar múltiplos itens em uma única variável. Em Python, as tuplas são declaradas utilizando parênteses. Por exemplo:</p>
+<pre><code class="language-python">fruits = ("apple", "banana", "cherry")
+
+nomes = ("João", "Maria", "José")
+</code></pre>
+<p>Apesar de serem muito semelhantes às listas, as tuplas têm uma diferença importante: as tuplas são imutáveis, ou seja, uma vez que uma tupla é criada, não é possível adicionar, remover ou alterar itens na tupla.
+E aí, surge a pergunta: “Por que utilizar tuplas se as listas são mais flexíveis?”. A resposta é que, por serem imutáveis, as tuplas são mais rápidas que as listas, e ocupam menos espaço na memória.</p>
+<p>Podemos utilizar diversas funções nativas do Python para manipular tuplas. Listamos algumas na tabela abaixo.</p>
+<details class="answer">
+<summary>Tabela de Funções para Tuplas</summary>
+<figure class="table"><table>
+<thead>
+<tr>
+<th>Função</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>count( )</td>
+<td>Retorna o número de vezes que um valor específico aparece na tupla</td>
+</tr>
+<tr>
+<td>index( )</td>
+<td>Retorna o índice do primeiro item com o valor especificado</td>
+</tr>
+<tr>
+<td>len( )</td>
+<td>Retorna o comprimento da tupla</td>
+</tr>
+<tr>
+<td>max( )</td>
+<td>Retorna o maior item da tupla</td>
+</tr>
+<tr>
+<td>min( )</td>
+<td>Retorna o menor item da tupla</td>
+</tr>
+<tr>
+<td>sum( )</td>
+<td>Retorna a soma de todos os itens da tupla</td>
+</tr>
+<tr>
+<td>sorted( )</td>
+<td>Retorna uma lista ordenada com os itens da tupla</td>
+</tr>
+</tbody>
+</table></figure>
+</details>
+<blockquote class="question">
+<p>Exemplo</p>
+<pre><code class="language-python">fruits = ("apple", "banana", "cherry")
+
+print(fruits.count("cherry")) 
+# 1
+
+print(fruits.index("banana")) 
+# 1
+</code></pre>
+</blockquote>
+<blockquote class="question">
+<p>Exercício de Fixação</p>
+<p>Crie uma função que receba uma tupla de números como parâmetro e retorne a soma dos números.</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<pre><code class="language-python">def soma_tupla(x):
+    return sum(x)
+
+print(soma_tupla((1, 2, 3, 4, 5))) # 15
+</code></pre>
+</details>
+</blockquote>
+<details class="answer">
+<summary>Dica</summary>
+<p>Para mais informações sobre tuplas, consulte a <a href="https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences" target="_blank">documentação oficial</a>.</p>
+</details>
+<h2>Dicionários</h2>
+<p>Dicionários são coleções desordenadas de itens, e são utilizados para armazenar pares de chave-valor. Em Python, os dicionários são declarados utilizando chaves. Por exemplo:</p>
+<pre><code class="language-python">person = {
+    "name": "John",
+    "age": 36,
+    "country": "Norway"
+}
+</code></pre>
+<p>Neste exemplo, <em>person</em> é um dicionário que contém três pares de chave-valor. A chave é o nome do item, e o valor é o conteúdo do item.</p>
+<blockquote class="question">
+<p>Pergunta</p>
+<p>No exemplo acima, quais são as chaves e os valores do dicionário <em>person</em>?</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<p>As chaves do dicionário <em>person</em> são “name”, “age” e “country”, e os valores do dicionário <em>person</em> são “John”, 36 e “Norway”.</p>
+</details>
+</blockquote>
+<p>Esta é, quiçá, a estrutura de dados que mais se assemelha a um DataFrame, que usaremos muito aqui no IQFC. Por isso, é importante que você entenda bem como manipular dicionários.</p>
+<p>Podemos utilizar diversas funções nativas do Python para manipular dicionários. Listamos algumas na tabela abaixo.</p>
+<details class="answer">
+<summary>Tabela de Funções para Dicionários</summary>
+<figure class="table"><table>
+<thead>
+<tr>
+<th>Função</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clear( )</td>
+<td>Remove todos os elementos do dicionário</td>
+</tr>
+<tr>
+<td>copy( )</td>
+<td>Retorna uma cópia do dicionário</td>
+</tr>
+<tr>
+<td>fromkeys( )</td>
+<td>Retorna um dicionário com as chaves e os valores especificados</td>
+</tr>
+<tr>
+<td>get( )</td>
+<td>Retorna o valor da chave especificada</td>
+</tr>
+<tr>
+<td>items( )</td>
+<td>Retorna uma lista contendo uma tupla para cada par chave-valor</td>
+</tr>
+<tr>
+<td>keys( )</td>
+<td>Retorna uma lista contendo as chaves do dicionário</td>
+</tr>
+<tr>
+<td>pop( )</td>
+<td>Remove o elemento com a chave especificada</td>
+</tr>
+<tr>
+<td>popitem( )</td>
+<td>Remove o último par chave-valor inserido</td>
+</tr>
+<tr>
+<td>setdefault( )</td>
+<td>Retorna o valor da chave especificada. Se a chave não existir, insere a chave com o valor especificado</td>
+</tr>
+<tr>
+<td>update( )</td>
+<td>Atualiza o dicionário com os pares chave-valor especificados</td>
+</tr>
+<tr>
+<td>values( )</td>
+<td>Retorna uma lista contendo os valores do dicionário</td>
+</tr>
+</tbody>
+</table></figure>
+</details>
+<blockquote class="question">
+<p>Exercício 1</p>
+<p>Crie uma função que receba um dicionário como parâmetro e retorne uma lista contendo as chaves do dicionário.</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<pre><code class="language-python">def chaves(x):
+    return list(x.keys())
+
+d = {"name": "John", "age": 36, "country": "Norway"}
+
+print(chaves(d)) # ['name', 'age', 'country']
+</code></pre>
+</details>
+</blockquote>
+<blockquote class="question">
+<p>Exercício 2</p>
+<p>Crie uma função que receba um dicionário como parâmetro e retorne uma lista contendo os valores do dicionário.</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<pre><code class="language-python">def valores(x):
+    return list(x.values())
+
+d = {"name": "John", "age": 36, "country": "Norway"}
+
+print(valores(d)) # ['John', 36, 'Norway']
+</code></pre>
+</details>
+</blockquote>
+<blockquote class="question">
+<p>Exercício 3</p>
+<p>Crie uma função que receba um dicionário como parâmetro e retorne uma lista contendo as tuplas chave-valor do dicionário ordenada em ordem alfabética das chaves.</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<pre><code class="language-python">def itens(x):
+    return sorted(list(x.items()))
+
+d = {"name": "John", "age": 36, "country": "Norway"}
+
+print(itens(d)) # [('age', 36), ('country', 'Norway'), ('name', 'John')]
+</code></pre>
+</details>
+</blockquote>
+<h2>Estruturas de Repetição</h2>
+<p>As estruturas de repetição são utilizadas para executar um bloco de código várias vezes. Em Python, temos a estrutura de repetição <em>while</em>, que é utilizada para executar um bloco de código enquanto a condição for verdadeira e a estrutura de repetição <em>for</em>, que é utilizada para iterar sobre uma sequência de elementos.</p>
+<ul>
+<li>
+<p>Exemplos de estrutura de repetição <em>while</em>:</p>
+<pre><code class="language-python">i = 0
+while i &lt; 6:
+    print(i)
+    i += 1
+</code></pre>
+<p>O código acima irá imprimir os números de 0 a 5.</p>
+<pre><code class="language-python">fruits = ["apple", "banana", "cherry"]
+i = 0
+while i &lt; len(fruits):
+    print(fruits[i])
+    i += 1
+</code></pre>
+<p>O código acima irá imprimir os elementos da lista <em>fruits</em>.</p>
+</li>
+<li>
+<p>Exemplos de estrutura de repetição <em>for</em>:</p>
+<pre><code class="language-python">for i in range(6):
+    print(i)
+</code></pre>
+<p>O código acima irá imprimir os números de 0 a 5.</p>
+<pre><code class="language-python">fruits = ["apple", "banana", "cherry"]
+for x in fruits:
+    print(x)
+</code></pre>
+<p>O código acima irá imprimir os elementos da lista <em>fruits</em>.</p>
+</li>
+</ul>
+<blockquote class="question">
+<p>Exercício 4</p>
+<p>Crie uma função que receba um número como parâmetro e imprima todos os números de 0 até o número.</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<pre><code class="language-python">def imprime_ate(x):
+    for i in range(x):
+        print(i)
+
+imprime_ate(6)
+# 0
+# 1
+# 2
+# 3
+# 4
+# 5
+</code></pre>
+</details>
+</blockquote>
+<blockquote class="question">
+<p>Exercício 5</p>
+<p>Crie uma função que receba uma lista de nomes como parâmetro e imprima todos os nomes da lista.</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<pre><code class="language-python">def imprime_nomes(x):
+    for nome in x:
+        print(nome)
+
+nomes = ["João", "Maria", "José"]
+
+imprime_nomes(nomes)
+# João
+# Maria
+# José
+</code></pre>
+</details>
+</blockquote>
+<blockquote class="question">
+<p>Exercício 6</p>
+<p>Crie uma função que receba um dicionário como parâmetro e imprima todos os pares chave-valor do dicionário.</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<pre><code class="language-python">def imprime_dicionario(x):
+    for chave, valor in x.items():
+        print(chave, valor)
+
+d = {"name": "John", "age": 36, "country": "Norway"}
+
+imprime_dicionario(d)
+# name John
+# age 36
+# country Norway
+</code></pre>
+</details>
+</blockquote>
+<blockquote class="question">
+<p>Exercício 7</p>
+<p>Crie uma função que receba uma string como parâmetro e imprima cada caractere da string.</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<pre><code class="language-python">def imprime_caracteres(x):
+    for caractere in x:
+        print(caractere)
+
+imprime_caracteres("Hello, World!")
+# H
+# e
+# l
+# l
+# o
+# ,
+#  
+# W
+# o
+# r
+# l
+# d
+# !
+</code></pre>
+</details>
+</blockquote>
+<blockquote class="question">
+<p>Exercício 8</p>
+<p>Crie uma função que receba um dicionário como parâmetro e imprima todos os valores do dicionário.</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<pre><code class="language-python">def imprime_valores(x):
+    for valor in x.values():
+        print(valor)
+
+d = {"name": "John", "age": 36, "country": "Norway"}
+
+imprime_valores(d)
+# John
+# 36
+# Norway
+</code></pre>
+</details>
+</blockquote>
+<h2>Conjuntos</h2>
+<p>Conjuntos são coleções desordenadas de itens, e são utilizados para armazenar múltiplos itens em uma única variável. Em Python, os conjuntos são declarados utilizando chaves. Por exemplo:</p>
+<pre><code class="language-python">fruits = {"apple", "banana", "cherry"}
+
+nomes = {"João", "Maria", "José"}
+</code></pre>
+<p>Os conjuntos não permitem itens duplicados, ou seja, se tentarmos adicionar um item que já existe no conjunto, o item não será adicionado.
+E, novamente, surge a pergunta: “Por que utilizar conjuntos se as listas são mais flexíveis?”. A resposta é que, por não permitirem itens duplicados, os conjuntos são mais rápidos que as listas, e ocupam menos espaço na memória. E, então, surge outra pergunta: “Por que utilizar conjuntos se as tuplas são mais rápidas e ocupam menos espaço na memória?”. A resposta é que os conjuntos são mais flexíveis que as tuplas, e permitem adicionar e remover itens.</p>
+<p>Podemos utilizar diversas funções nativas do Python para manipular conjuntos. Listamos algumas na tabela abaixo.</p>
+<details class="answer">
+<summary>Tabela de Funções para Conjuntos</summary>
+<figure class="table"><table>
+<thead>
+<tr>
+<th>Função</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>add( )</td>
+<td>Adiciona um item ao conjunto</td>
+</tr>
+<tr>
+<td>clear( )</td>
+<td>Remove todos os itens do conjunto</td>
+</tr>
+<tr>
+<td>copy( )</td>
+<td>Retorna uma cópia do conjunto</td>
+</tr>
+<tr>
+<td>difference( )</td>
+<td>Retorna um conjunto contendo a diferença entre dois ou mais conjuntos</td>
+</tr>
+<tr>
+<td>difference_update( )</td>
+<td>Remove os itens do conjunto que estão em outro conjunto</td>
+</tr>
+<tr>
+<td>discard( )</td>
+<td>Remove o item especificado</td>
+</tr>
+<tr>
+<td>intersection( )</td>
+<td>Retorna um conjunto contendo a interseção entre dois ou mais conjuntos</td>
+</tr>
+<tr>
+<td>intersection_update( )</td>
+<td>Remove os itens do conjunto que não estão em outro conjunto</td>
+</tr>
+<tr>
+<td>isdisjoint( )</td>
+<td>Retorna True se nenhum item do conjunto A estiver no conjunto B</td>
+</tr>
+<tr>
+<td>issubset( )</td>
+<td>Retorna True se todos os itens do conjunto A estiverem no conjunto B</td>
+</tr>
+<tr>
+<td>issuperset( )</td>
+<td>Retorna True se todos os itens do conjunto B estiverem no conjunto A</td>
+</tr>
+<tr>
+<td>pop( )</td>
+<td>Remove um item aleatório do conjunto</td>
+</tr>
+<tr>
+<td>remove( )</td>
+<td>Remove o item especificado</td>
+</tr>
+<tr>
+<td>symmetric_difference( )</td>
+<td>Retorna um conjunto contendo a diferença simétrica entre dois conjuntos</td>
+</tr>
+<tr>
+<td>symmetric_difference_update( )</td>
+<td>Insere a diferença simétrica entre dois conjuntos no conjunto</td>
+</tr>
+<tr>
+<td>union( )</td>
+<td>Retorna um conjunto contendo a união entre dois ou mais conjuntos</td>
+</tr>
+<tr>
+<td>update( )</td>
+<td>Insere os itens de um conjunto em outro conjunto</td>
+</tr>
+</tbody>
+</table></figure>
+</details>
+<blockquote class="question">
+<p>Exercício 9</p>
+<p>Crie uma função que receba dois conjuntos como parâmetros e retorne a união entre os conjuntos.</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<pre><code class="language-python">def uniao(x, y):
+    return x.union(y)
+
+a = {1, 2, 3}
+b = {4, 5, 6}
+
+print(uniao(a, b)) # {1, 2, 3, 4, 5, 6}
+</code></pre>
+</details>
+</blockquote>
+<blockquote class="question">
+<p>Exercício 10</p>
+<p>Crie uma função que receba dois conjuntos como parâmetros e retorne a interseção entre os conjuntos.</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<pre><code class="language-python">def intersecao(x, y):
+    return x.intersection(y)
+
+a = {1, 2, 3, 4, 5}
+b = {4, 5, 6, 7, 8}
+
+print(intersecao(a, b)) # {4, 5}
+</code></pre>
+</details>
+</blockquote>
+<blockquote class="question">
+<p>Exercício 11</p>
+<p>Crie uma função que receba dois conjuntos como parâmetros e retorne a diferença entre os conjuntos.</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<pre><code class="language-python">def diferenca(x, y):
+    return x.difference(y)
+
+a = {1, 2, 3, 4, 5}
+b = {4, 5, 6, 7, 8}
+
+print(diferenca(a, b)) # {1, 2, 3}
+</code></pre>
+</details>
+</blockquote>
+<h2>Manipulação de Arquivos</h2>
+<p>A manipulação de arquivos é uma tarefa comum em programação. Em Python, podemos manipular arquivos utilizando funções nativas. Listamos algumas abaixo.</p>
+<figure class="table"><table>
+<thead>
+<tr>
+<th>Função</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>open( )</td>
+<td>Abre um arquivo</td>
+</tr>
+<tr>
+<td>close( )</td>
+<td>Fecha um arquivo</td>
+</tr>
+<tr>
+<td>read( )</td>
+<td>Lê o conteúdo de um arquivo</td>
+</tr>
+<tr>
+<td>readline( )</td>
+<td>Lê a linha atual de um arquivo</td>
+</tr>
+<tr>
+<td>readlines( )</td>
+<td>Lê todas as linhas de um arquivo</td>
+</tr>
+<tr>
+<td>write( )</td>
+<td>Escreve no arquivo</td>
+</tr>
+<tr>
+<td>append( )</td>
+<td>Adiciona ao arquivo</td>
+</tr>
+</tbody>
+</table></figure>
+<blockquote class="question">
+<p>Exemplo</p>
+<pre><code class="language-python">f = open("demofile.txt", "r")
+print(f.read())
+f.close()
+</code></pre>
+<p>O código acima irá abrir o arquivo <em>demofile.txt</em>, ler o conteúdo do arquivo e imprimir o conteúdo do arquivo.</p>
+<pre><code class="language-python">f = open("demofile.txt", "a")
+f.write("Now the file has more content!")
+f.close()
+</code></pre>
+<p>O código acima irá abrir o arquivo <em>demofile.txt</em>, adicionar o texto “Now the file has more content!” ao final do arquivo e fechar o arquivo.</p>
+</blockquote>
+<p>Além das funções nativas, podemos utilizar o comando <em>with</em> para abrir e manipular arquivos. O comando <em>with</em> garante que o arquivo será fechado corretamente após a manipulação, por isso, é uma boa prática utilizá-lo.</p>
+<blockquote class="question">
+<p>Exemplo</p>
+<pre><code class="language-python">with open("demofile.txt", "r") as f:
+    print(f.read())
+</code></pre>
+<p>O código acima irá abrir o arquivo <em>demofile.txt</em>, ler o conteúdo do arquivo e imprimir o conteúdo do arquivo, e garantir que o arquivo será fechado corretamente após a manipulação.</p>
+</blockquote>
+<blockquote class="question">
+<p>Exercício 12</p>
+<p>Crie um arquivo chamado <em>demofile.txt</em> e adicione o texto “Hello, World!” ao arquivo.</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<pre><code class="language-python">with open("demofile.txt", "w") as f:
+    f.write("Hello, World!")
+</code></pre>
+</details>
+</blockquote>
+<blockquote class="question">
+<p>Exercício 13</p>
+<p>Crie uma função que receba o nome de um arquivo como parâmetro e retorne o conteúdo do arquivo.</p>
+<details class="answer">
+<summary>Gabarito</summary>
+<pre><code class="language-python">def le_arquivo(x):
+    with open(x, "r") as f:
+        return f.read()
+
+print(le_arquivo("demofile.txt")) # Hello, World!
+</code></pre>
+</details>
+</blockquote>
+<h2>Comentários</h2>
+<p>Finalmente, mas não menos importante, vamos falar sobre comentários. Comentários são utilizados para explicar o código e torná-lo mais legível. Em Python, os comentários são iniciados com o caractere <em>#</em>. Por exemplo:</p>
+<pre><code class="language-python"># This is a comment
+</code></pre>
+<p>Comentários de várias linhas são iniciados e terminados com três aspas simples ou duplas. Por exemplo:</p>
+<pre><code class="language-python">"""
+This is a comment
+written in
+more than just one line
+"""
+</code></pre>
+<p>Pode parecer besteira, mas é muito importante que você comente o seu código. Isso vai te ajudar a entender o que você fez quando você voltar a olhar para o código depois de um tempo, e vai ajudar outras pessoas a entenderem o que você fez. No entanto, é importante que você não exagere nos comentários, pois comentários em excesso podem tornar o código mais difícil de ler.</p>
+<h2>O que aprendemos?</h2>
+<p>Neste tutorial, aprendemos os primeiros passos para começar a programar em Python. Percorremos assuntos básicos, como o que são e como declarar variáveis, operadores aritméticos, operadores de comparação, operadores lógicos, estruturas condicionais, estruturas de repetição, funções, strings, listas, tuplas, dicionários, conjuntos, e manipulação de arquivos.</p>
+<p>Além disso, aprendemos a utilizar funções nativas do Python, e a manipular arquivos.</p>
+<p>Por fim, aprendemos a utilizar comentários para explicar o código e torná-lo mais legível.</p>
+<p>Agora que você já sabe os primeiros passos para começar a programar em Python, está pronto para seguir para o próximo tutorial, onde vamos aprender a utilizar a principal biblioteca de Data Science em Python, o Pandas.</p>
+<p>Até lá!</p>
+<figure class="img"><img src="img/panda.gif" alt="pandinha mt suav"></figure>
 
 
             </main>

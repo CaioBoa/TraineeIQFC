@@ -19,7 +19,7 @@ O Visual Studio Code é um editor de código-fonte desenvolvido pela Microsoft, 
 
 Para instalar o Visual Studio Code, acesse o [site oficial](https://code.visualstudio.com/) e clique no botão de download. O site irá identificar automaticamente o sistema operacional que você está utilizando e oferecer o download da versão correta. Após o download, execute o instalador e siga as instruções para instalar o Visual Studio Code.
 
-## Instalação do Python
+## Instalação do Python 
 
 !!! 
 Se você já tem o Python instalado, você pode pular para a próxima seção.
