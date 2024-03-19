@@ -28,6 +28,9 @@
 <p>Essa aula pode servir como uma prévia de como você pode estruturar seu código para a estratégia quantitativa que você irá desenvolver, servindo como uma primeira parte de um guia para o projeto final.</p>
 <p>A estruturação do código é extremamente importante para que o mesmo seja de fácil compreensão e manutenção, e para que futuramente você possa reutilizar o mesmo código em outros projetos.</p>
 <p>Recomenda-se que estruture seu projeto em um arquivo do tipo .ipynb, que é um arquivo do Jupyter Notebook, que permite a execução de código em Python de forma interativa, e a inserção de texto explicativo entre os códigos, de modo que você possa rodar cédula a cédula sem precisar carregar todos os dados a cada vez que for rodar o código.</p>
+<p>Um código de estratégia quantitativa sempre funcionará com o seguinte princípio:
+<strong>Dentre um universo definido de ativos, selecionar aqueles que melhor se adequem a minha estratégia</strong></p>
+<p>Portanto um código de estratégia quantitativa pode ser resumido a um filtro, pelo qual passarão todos os ativos de seu universo e ao final do filtro só restarão os ativos compatíves com a sua estratégia.</p>
 <p>Em suma, um código de estratégia quantitativa pode ser estruturado em 5 partes:</p>
 <ol>
 <li>Importação de Bibliotecas</li>
@@ -55,7 +58,7 @@ import quantstats as qs
 <ul>
 <li>Do que se trata uma Estratégia?</li>
 </ul>
-<p><em>Estratégias</em> serão os blocos de código correspondentes a aplicação de seus fatores para determinado período de tempo definido, resumidamente, estratégias são as regras que seu código seguirá para escolher os ativos a serem alocados.</p>
+<p><em>Estratégias</em> serão os blocos de código correspondentes a aplicação de seus fatores para determinado período de tempo definido, resumidamente, estratégias são as regras que seu código seguirá para escolher os melhores ativos.</p>
 <p>As estratégias correspondem a apenas uma iteração do código, porém o mesmo terá de ser iterado diversas vezes para que se possa analisar o resultado real que sua estratégia teria em determinado período de tempo passado.</p>
 <p>A cada iteração de tempo, sua estratégia será responsável por escolher os tickers a qual seu capital deve ser alocado.</p>
 <ul>
@@ -67,7 +70,7 @@ import quantstats as qs
 <h2>Análise de Resultados</h2>
 <p>Por fim analisaremos os resultados obtidos em nosso backtest, e a partir disso poderemos validar ou não nossa estratégia.</p>
 <p>Essa etapa do projeto se resume a extrair indicadores interessantes de desempenho que possam auxiliar na decisão de adesão ou não de sua estratégia. Para tal recomendamos o uso da biblioteca quantstats do Pyhton, que apresenta diversos indicadores de desempenho.</p>
-<h2>Esquema Ilustrativo de Estruturação</h2>
+<h2>Esquema Ilustrativo de um Projeto Quant</h2>
 <figure class="img"><img src="img/codigo.png" alt="Estruturação do Código"></figure>
 
 

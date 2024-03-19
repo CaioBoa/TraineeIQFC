@@ -37,7 +37,7 @@ momentum = fechamento[(fechamento["Data"] < dataInicio) & (fechamento["Data"] > 
 momentum = momentum.set_index('Data')
 momentum = momentum.pct_change(fill_method=None).add(1).cumprod().add(-1)
 momentum = momentum.iloc[-1]
-momentum = momentum.sort_values(ascending = False)
+momentum = momentum.sort_values(by = lowvol.columns[0], ascending = False)
 momentum = momentum.iloc[:10]
 ```
 
@@ -46,7 +46,7 @@ A primeira linha do bloco de código é responsável por filtrar a base de dados
 momentum = fechamento[(fechamento["Data"] < dataInicio) & (fechamento["Data"] > dataAnalise)]
 ```
 
-A segunda linha é responsável por definir o index da base de dados como a coluna de datas, de modo que possamos realizar operações com a base de dados de forma mais eficiente.
+A segunda linha é responsável por definir o index da base de dados como a coluna de datas, de modo que possamos realizar a seleção do último índice como sendo a última data.
 ```python
 momentum = momentum.set_index('Data')
 ```
@@ -74,7 +74,7 @@ momentum = momentum.iloc[-1]
 
 A linha seguinte é responsável por ordenar os ativos de forma descrescente, conferindo os primeiros índices aos maiores valores de variação percentual acumulada.
 ```python
-momentum = momentum.sort_values(ascending = False)
+momentum = momentum.sort_values(by = lowvol.columns[0], ascending = False)
 ```
 
 A linha seguinte é responsável por selecionar os 10 ativos com maior variação percentual acumulada para realizar a seleção final dos ativos.

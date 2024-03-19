@@ -6,7 +6,7 @@ Low Volatility
 Explicação do Fator
 -------------------
 
-O fator Low Volatitily (Low Vol) pode ser interpretado como um fator defensivo, como o nome sugere, seu principal objetivo é diminuir a volatilidade da estratégia, tornando seus resultados mais previsíveis.
+O fator *Low Volatitily (Low Vol)* pode ser interpretado como um fator defensivo, como o nome sugere, seu principal objetivo é diminuir a volatilidade da estratégia, tornando seus resultados mais previsíveis.
 
 As principais abordagens para utilizar esse fator em suas estratégias são:
 
@@ -20,26 +20,75 @@ Implementação em Python
 -----------------------
 
 Nesse exemplo, utilizaremos o desvio-padrão do retorno do ativo, sinta-se livre para utilizar variância, assim como o desvio-padrão de outros indicadores conforme você sentir necessário. Há um medidor de desvio-padrão no economática, mas não recomendamos.
-A única base de dados necessária para calcular esse desvio-padrão será os dados de fechamento. Logo, baseado em seu lookback, data inicial e final.
+
+A única base de dados necessária para calcular esse desvio-padrão será a base de dados **fechamento**.
+
+Primeiramente, defina o período de análise e o período de lookback, que é o período de tempo que será analisado para a definição do fator low vol. No caso a seguir, o período de lookback é de 1 mês.
 
 ```python
-data_inicial = pd.Timestamp(dt.date(2007,1,1))
-data_final = pd.Timestamp(dt.date(2023,8,31))
-
 lookback_lowvol = 1
+dataInicio = pd.Timestamp(dt.date(2007,1,1))
+dataAnalise = dataInicio - pd.DateOffset(months = lookback)
 ```
 
-
-
-Então calcula-se o desvio-padrão do período. Note que está sendo utilizado a base de dados do fechamento, que foi explicada como ser feita na aula “Tratamento de Dados”. 
+Então aplica-se o seguinte bloco de cógido para decisão dos melhores ativos seguindo as regras definidas pelo fator de low vol. 
 
 ```python
-        data_analise_lowvol = data_inicial - pd.DateOffset(months = lookback_lowvol)
-        base_lowvol = fechamento[(fechamento['Data'] < data_inicial) & (fechamento['Data'] >= data_analise_lowvol)]
-        base_lowvol = base_lowvol.pct_change()
-        base_lowvol = base_lowvol.std()
-        base_lowvol = base_lowvol.dropna()
-        base_lowvol = base_lowvol.reset_index()
-        base_lowvol = base_lowvol.sort_values(by = base_lowvol.columns[1], ascending = True)
+lowvol = fechamento[(fechamento['Data'] < dataInicio) & (fechamento['Data'] >= dataAnalise)]
+lowvol = lowvol.set_index('Data')
+lowvol = lowvol.pct_change()
+lowvol = lowvol.std()
+lowvol = lowvol.dropna()
+lowvol = lowvol.iloc[-1]
+lowvol = lowvol.sort_values(by = lowvol.columns[0], ascending = True)
+lowvol = lowvol.iloc[:10]
 ```
-Importante notar que o caso demonstrado está sendo feito na parte iterada do backtest, dependendo da maneira que você preferir fazer esse código, pode calcular o desvio-padrão de todo o período e interpretá-lo de outra maneira no backtest. 
+
+A primeira linha do bloco de código é responsável por filtrar a base de dados para o momento de análise, ou seja, para o período de tempo que será analisado para a definição do fator low vol.
+```python
+lowvol = fechamento[(fechamento['Data'] < data_inicial) & (fechamento['Data'] >= dataAnalise)]
+```
+
+A segunda linha é responsável por definir o index da base de dados como a coluna de datas, de modo que possamos realizar a seleção do último índice como sendo a última data.
+```python
+momentum = momentum.set_index('Data')
+```
+
+A seguinte linha de código é utilizada para alterar a apresentação dos valores de fechamento de valores inteiros para valores percentuais em relação a valores anteriores, de modo que se possa calcular o desvio-padrão do retorno de maneira simétrica para todos os ativos.
+```python
+lowvol = lowvol.pct_change()
+```
+
+Essa linha é a responsável pelo cálculo do desvio-padrão do retorno de cada ativo.
+```python
+lowvol = lowvol.std()
+```
+Para evitar possíveis falhas é interessante remover os valores nulos que podem ter resultado da operação anterior.
+```python
+lowvol = lowvol.dropna()
+```
+
+Seguindo, selecionamos apenas o último dia do período de análise, uma vez que nos interessa apenas o desvio-padrão do retorno de nosso período de lookback.
+```python
+lowvol = lowvol.iloc[-1]
+```
+
+A linha seguinte é responsável por ordenar os ativos de forma crescente, conferindo os primeiros índices aos menores valores de desvio-padrão do retorno.
+```python
+lowvol = lowvol.sort_values(by = lowvol.columns[0], ascending = True)
+```
+
+Tal forma de seleção escolhendo apenas os 10 menores valores é uma forma consideravelmente simples de se realizar a seleção, porém a fim de simplificar o entendimento do fator será realizada de tal forma.
+
+Por fim selecionamos os 10 ativos com menor desvio-padrão do retorno, finalizando a aplicação de nossa estratégia.
+```python
+lowvol = lowvol.iloc[:10]
+```
+
+!!!Aviso
+Tal bloco de código se aplica somente para uma iteração da base de dados, ou seja, para um único momento de análise. 
+
+Para a realização efetiva do teste do fator size, é necessário que o bloco de código seja iterado para todo o dataset previsto.
+!!!
+
+

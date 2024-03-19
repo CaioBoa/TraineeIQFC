@@ -33,6 +33,20 @@ O Python é uma linguagem de programação de alto nível, interpretada, de scri
 
 Para instalar o Python, acesse o [site oficial](https://www.python.org/) e clique no botão de download. O site te oferecerá a versão mais recente do Python, e te dará diferentes opções de sistemas operacionais. Escolha a opção que corresponde ao seu sistema operacional e clique no link para baixar o instalador.
 
+Dentro do Instalador Python lembre-se de marcar as seguintes opções:
+
+<div align="center">
+    <img src="pythoninstaller.png" alt="Python Installer" width="600"/>
+</div>
+
+Sem marcar essas opções seu ambiente de desenvolvimento poderá ter dificuldades em reconhecer o Python e suas bibliotecas.
+
+Também lembre-se de acionar a seguinte configuração antes de fechar o instalador após a instalação:
+
+<div align="center">
+    <img src="pythoninstaller2.png" alt="Python Installer" width="600"/>
+</div>
+
 ??? Exemplo
     Se você estiver utilizando Windows de 64 bits, você deve baixar a versão de 64 bits do Python. Você clicará no link ***Windows embeddable package (64-bit)*** e o download começará automaticamente.
 

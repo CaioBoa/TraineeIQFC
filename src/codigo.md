@@ -9,6 +9,11 @@ A estruturação do código é extremamente importante para que o mesmo seja de 
 
 Recomenda-se que estruture seu projeto em um arquivo do tipo .ipynb, que é um arquivo do Jupyter Notebook, que permite a execução de código em Python de forma interativa, e a inserção de texto explicativo entre os códigos, de modo que você possa rodar cédula a cédula sem precisar carregar todos os dados a cada vez que for rodar o código.
 
+Um código de estratégia quantitativa sempre funcionará com o seguinte princípio:
+**Dentre um universo definido de ativos, selecionar aqueles que melhor se adequem a minha estratégia**
+
+Portanto um código de estratégia quantitativa pode ser resumido a um filtro, pelo qual passarão todos os ativos de seu universo e ao final do filtro só restarão os ativos compatíves com a sua estratégia.
+
 Em suma, um código de estratégia quantitativa pode ser estruturado em 5 partes:
 
 1. Importação de Bibliotecas
@@ -52,7 +57,7 @@ Esse é o coração do seu projeto, onde você irá definir suas estratégias e 
 
 * Do que se trata uma Estratégia?
 
-*Estratégias* serão os blocos de código correspondentes a aplicação de seus fatores para determinado período de tempo definido, resumidamente, estratégias são as regras que seu código seguirá para escolher os ativos a serem alocados.
+*Estratégias* serão os blocos de código correspondentes a aplicação de seus fatores para determinado período de tempo definido, resumidamente, estratégias são as regras que seu código seguirá para escolher os melhores ativos.
 
 As estratégias correspondem a apenas uma iteração do código, porém o mesmo terá de ser iterado diversas vezes para que se possa analisar o resultado real que sua estratégia teria em determinado período de tempo passado.
 
@@ -73,7 +78,7 @@ Por fim analisaremos os resultados obtidos em nosso backtest, e a partir disso p
 
 Essa etapa do projeto se resume a extrair indicadores interessantes de desempenho que possam auxiliar na decisão de adesão ou não de sua estratégia. Para tal recomendamos o uso da biblioteca quantstats do Pyhton, que apresenta diversos indicadores de desempenho.
 
-Esquema Ilustrativo de Estruturação
+Esquema Ilustrativo de um Projeto Quant
 ------
 
 ![Estruturação do Código](codigo.png)

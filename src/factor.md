@@ -64,3 +64,20 @@ Momentum surge da premissa que ativos seguem tendências de mercado, ou seja, at
 
 Portanto para a medição de tal fator pode-se utilizar métricas de retorno financeiro como *Retorno Acumulado*.
 
+Sobre os Fatores
+------
+
+Fatores são formas objetivas de escolher ativos para montagem de uma carteira e possuem diversos benefícios em sua utilização, uma vez que são constates alvos de estudo, possuíndo portanto uma sólida base teórica, e independem de aspectos subjetivos e pessoais, uma vez que são mensuráveis e objetivos.
+
+Todávia é importante ressaltar que não existe um fator mágico capaz de prever o mercado em sua totalidade, apenas estratégias que aproximam o investidor de uma carteira mais sólida e previsível.
+
+Cada fator apresenta vantagens e desvantagens que podem depender do tipo de ativo, incerteza do mercado, localidade e diversos outros fatores, portanto é importante para o desenvolvedor de uma estratégia quantitativa estar ciente das condições atuais de mercado e da base teórica que acompanha cada fator, possibilitando assim a escolha dos melhores fatores e parâmetros para cada momento.
+
+<div align="center">
+    <img src="factorseason.png" alt="Market x Factors" width="600"/>
+</div>
+
+Referências
+------
+
+ [https://www.factorresearch.com/research-factor-seasonality](https://www.factorresearch.com/research-factor-seasonality)

@@ -27,18 +27,17 @@ Primeiramente, defina o período de análise e o período de lookback, que é o 
 
 ```python
 lookback_size = 6
-data_inicial = pd.Timestamp(dt.date(2023, 5, 4))
-data_analise_size = data_inicial - pd.DateOffset(months = lookback_size)
+dataInicio = pd.Timestamp(dt.date(2023, 5, 4))
+dataAnalise = data_inicial - pd.DateOffset(months = lookback_size)
 ```
 Segue abaixo um exemplo de aplicação do fator size em Python:
 ```python
-size = marketCap[(marketCap['Data'] < data_inicial) & (marketCap['Data'] >= data_analise_size)]
+size = marketCap[(marketCap['Data'] < dataInicio) & (marketCap['Data'] >= dataAnalise)]
 size = size.set_index('Data')
 size = size.iloc[-1]
-size = size.sort_values(by = size.columns[0], ascending=True)
+size = size.sort_values(by = lowvol.columns[0], ascending=True)
 size = size.dropna()
-size = size[size[2].isin(ibx)]
-size.columns = ['Data', 'variable']
+size = size.iloc[:10]
 ```
 
 A primeira linha do bloco de código é responsável por filtrar a base de dados para o momento de análise, ou seja, para o período de tempo que será analisado para a definição do fator size.
@@ -46,7 +45,7 @@ A primeira linha do bloco de código é responsável por filtrar a base de dados
 size = marketCap[(marketCap['Data'] < data_inicial) & (marketCap['Data'] >= data_analise_size)]
 ```
 
-A segunda linha é responsável por definir o index da base de dados como a coluna de datas, de modo que possamos realizar operações com a base de dados de forma mais eficiente.
+A segunda linha é responsável por definir o index da base de dados como a coluna de datas, de modo que possamos realizar a seleção do último índice como sendo a última data.
 ```python
 size = size.set_index('Data')
 ```
@@ -58,7 +57,7 @@ size = size.iloc[-1]
 
 Em sequência, ordenamos a base de dados em função do valor de mercado, de modo que possamos selecionar os ativos com maior e menor valor de mercado, no caso selecionamos os ativos com menor valor de mercado no topo.
 ```python
-size = size.sort_values(by = size.columns[0], ascending=True)
+size = size.sort_values(by = lowvol.columns[0], ascending=True)
 ```
 
 No próximo passo apagamos os valores nulos da base de dados, uma vez que não nos interessam para o fator e costumam ser valores antigos que atrapalham a análise.
