@@ -36,6 +36,8 @@ O projeto final será fundamentado na implementação de um paper de pesquisa qu
 
 Durante a entrega intermediária cada grupo ja construiu uma base para aplicação de um código de investimento quantitativo, portanto é esperado que nesse projeto final o grupo aprimore o código anterior, alterando sua estratégia para a estratégia pesquisada no paper escolhido e solucionando possíveis erros da entrega anterior.
 
+Na aba de <a href="/TraineeIQFC/site/papers.html">Papers de Referência</a> você encontrará uma lista de papers que podem ser utilizados para o projeto final.
+
 **Requisitos**
 
 - Entrega de um arquivo .zip contendo o código fonte da estratégia implementada, juntamente dos datasets utilizados e powerpoint da apresentação
